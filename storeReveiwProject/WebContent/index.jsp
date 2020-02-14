@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>loginpage</title>
+    <title>로그인페이지</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <jsp:include page="css.jsp"></jsp:include>
   </head>
   <body>
     <!-- SLIDER -->
@@ -49,6 +49,6 @@
     <!--//END HEADER -->
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+  <jsp:include page="javaScript.jsp"></jsp:include>
   </body>
 </html>
