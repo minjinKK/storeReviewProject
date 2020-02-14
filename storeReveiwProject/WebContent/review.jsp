@@ -2,12 +2,13 @@
 	pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
-<title>Andrea - Free Bootstrap 4 Template by Colorlib</title>
+<title>상세리뷰보기</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<jsp:include page="css.jsp"></jsp:include>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+	<jsp:include page="css.jsp"></jsp:include>
+
 </head>
 <body>
 	<div id="colorlib-page">
@@ -49,7 +50,7 @@
 											<h5 class="progress2__title">맛</h5>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="33"
-													data-timing="ease" data-duration="1000" data-delay="500"></div>
+													data-timing="ease" data-duration="1000" data-delay="100"></div>
 												<span class="progress2__number">39%</span>
 											</div>
 										</div>
@@ -61,7 +62,7 @@
 											<h5 class="progress2__title">가성비</h5>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="59"
-													data-timing="ease" data-duration="1000" data-delay="500"></div>
+													data-timing="ease" data-duration="1000" data-delay="100"></div>
 												<span class="progress2__number">47%</span>
 											</div>
 										</div>
@@ -73,7 +74,7 @@
 											<h5 class="progress2__title">회전율</h5>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="53"
-													data-timing="ease" data-duration="1000" data-delay="500"></div>
+													data-timing="ease" data-duration="1000" data-delay="100"></div>
 												<span class="progress2__number">59%</span>
 											</div>
 										</div>
@@ -84,7 +85,7 @@
 											<h5 class="progress2__title">거리</h5>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="53"
-													data-timing="ease" data-duration="1000" data-delay="500"></div>
+													data-timing="ease" data-duration="1000" data-delay="100"></div>
 												<span class="progress2__number">59%</span>
 											</div>
 										</div>
@@ -105,6 +106,7 @@
 											class="tag-cloud-link">Travel</a>
 									</div>
 								</div>
+								<!-- 
 								<div class="about-author bg-light col-xs-12">
 									<div class="desc">
 										<div class="well well-sm">
@@ -131,8 +133,8 @@
 								        </div> 
 									</div>
 								</div>
-
-
+								-->
+	
 								<div class="pt-5 mt-5">
 									<h3 class="mb-5 font-weight-bold">6 Comments</h3>
 									<ul class="comment-list">
@@ -191,7 +193,7 @@
 										</li>
 									</ul>
 									<!-- END comment-list -->
-
+									<!-- 
 									<div class="comment-form-wrap pt-5">
 										<h3 class="mb-5">Leave a comment</h3>
 										<form action="#" class="p-3 p-md-5 bg-light">
@@ -220,6 +222,7 @@
 
 										</form>
 									</div>
+									-->
 								</div>
 							</div>
 							<!-- END-->

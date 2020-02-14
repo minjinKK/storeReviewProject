@@ -27,4 +27,5 @@
 <link rel="stylesheet" href="./Resouces/css/flaticon.css">
 <link rel="stylesheet" href="./Resouces/css/icomoon.css">
 <link rel="stylesheet" href="./Resouces/css/style.css">
+<link rel="stylesheet" href="./Resouces/css/glyphicons.css">
 <!-- ---------------------------------------------------------------------------- -->
