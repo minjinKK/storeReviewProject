@@ -17,21 +17,19 @@
                 <div class="col-md-12">
                     <div class="slider-title_box">
                         <div class="row">
-                        
                             <div class="col-md-12">
                                 <div class="slider-content_wrap">
                                     <h1>Discover great places in New york</h1>
                                     <h5>Let's uncover the best places to eat, drink, and shop nearest to you.</h5>
-                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center" >
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4">
+                                <form class="form-wrap mt-4" action = "login.do">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="ID" class="btn-group1">
-                                        <input type="text" placeholder="PASSWORD" class="btn-group2">
+                                        <input type="text" name = "memberid" placeholder="ID" class="btn-group1">
+                                        <input type="text" name = "memberpw" placeholder="PASSWORD" class="btn-group2">
                                         <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>로그인<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
