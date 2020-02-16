@@ -43,12 +43,12 @@ public class ReviewDAOimpl implements ReviewDAO {
 			System.out.println("conn successed...");
 
 			// 3. SQL 설정
-			pstmt = conn.prepareStatement(SELECT_PLACE_ONE);
+			pstmt = conn.prepareStatement(INSERT_REVIEW);
 			
 				
 			}
 
-		} catch (SQLException e) {
+		 catch (SQLException e) {
 			System.out.println("conn failed...");
 			e.printStackTrace();
 		} finally {

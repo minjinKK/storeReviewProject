@@ -73,6 +73,7 @@ public class MemberDAOimpl implements MemberDAO {
 				vo2.setMemberpw(rs.getString("member_pw"));
 				System.out.println(vo2.getMemberpw());
 				vo2.setMemberemail(rs.getString("member_email"));
+				
 			}
 
 		} catch (SQLException e) {

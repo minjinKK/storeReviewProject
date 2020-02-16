@@ -6,6 +6,9 @@
 <%
    ArrayList<ScoreVO> slist = (ArrayList<ScoreVO>) request.getAttribute("list");
 	ArrayList<PlaceVO> plist = (ArrayList<PlaceVO>) request.getAttribute("placeList");
+	String memberid = request.getParameter("memberid");
+	
+	session.setAttribute("memberid", memberid);
 %>
 	
 <!DOCTYPE html>

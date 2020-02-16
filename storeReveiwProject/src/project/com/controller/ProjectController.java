@@ -53,7 +53,7 @@ public class ProjectController extends HttpServlet {
 			
 			if ( vo2.getMemberid() != null) {
 			
-				
+			request.setAttribute("memberid", vo2.getMemberid());
 				
 			System.out.println("login result success");
 			
