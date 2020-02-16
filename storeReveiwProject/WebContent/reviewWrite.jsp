@@ -73,22 +73,23 @@
 								<div class="col-md-12 py-1">
 									<div class="comment-form-wrap pt-5">
 										<h3 class="mb-5">평가 쓰기</h3>
-										<form action="#" class="p-3 p-md-5 bg-light">
-										<input id="r_taste" name="rating" type="hidden"> 
-										<input id="r_price" name="rating" type="hidden"> 
-										<input id="r_circul" name="rating" type="hidden"> 
-										<input id="r_distance" name="rating" type="hidden"> 
-										<input id="r_total" name="rating" type="hidden"> 
+										<form action="insert_review.do" class="p-3 p-md-5 bg-light">
+										<input id="r_taste" name="rating_taste" type="hidden"> 
+										<input id="r_price" name="rating__price" type="hidden"> 
+										<input id="r_circul" name="rating_circul" type="hidden"> 
+										<input id="r_distance" name="rating_distance" type="hidden"> 
+										<input id="r_total" name="rating_total" type="hidden"> 
 											<div class="form-group">
 												<textarea name="" id="message" cols="30" rows="10"
 													class="form-control"></textarea>
 											</div>
 											
-									</div>
+									
 									<div class="form-group">
 										<input type="submit" value="리뷰 남기기!" class="btn py-3 px-4 btn-primary">
 									</div>
 									</form>
+									</div>
 								</div>
 
 							</div>

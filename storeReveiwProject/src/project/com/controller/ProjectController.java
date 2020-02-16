@@ -152,7 +152,7 @@ public class ProjectController extends HttpServlet {
 			request.setAttribute("placeVO", vo2);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("review.jsp");
-
+			rd.forward(request, response);
 		}else if (sPath.equals("/searchAll.do")) {
 			System.out.println("selectAll");
 			String searchWord = request.getParameter("searchWord");

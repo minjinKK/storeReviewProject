@@ -43,24 +43,24 @@ $(function(){
   $( document ).ready(function() {
 	  $('#star_taste').on('starrr:change', function(e, value){
 	    $('#r_taste').val(value);
-	   //alert(value);
+	   alert(value);
 	  });
 	});
   $('#star_price').on('starrr:change', function(e, value){
 	    $('#r_price').val(value);
-	   //alert(value);
+	   alert(value);
 	  });
   $('#star_circul').on('starrr:change', function(e, value){
 	    $('#r_circul').val(value);
-	   //alert(value);
+	   alert(value);
 	  });
   $('#star_distance').on('starrr:change', function(e, value){
 	    $('#r_distance').val(value);
-	   //alert(value);
+	   alert(value);
 	  });
   $('#star_total').on('starrr:change', function(e, value){
 	    $('#r_total').val(value);
-	   //alert(value);
+	   alert(value);
 	  });
 
 });
