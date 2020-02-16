@@ -15,8 +15,6 @@ import project.com.model.ScoreVO;
 import project.com.service.ProjectService;
 
 
-
-
 /**
  * Servlet implementation class ProjectController
  */
@@ -58,7 +56,7 @@ public class ProjectController extends HttpServlet {
 				
 			System.out.println("login result success");
 			
-			
+	
 			RequestDispatcher rd = request.getRequestDispatcher("main_rating.do");
 			rd.forward(request, response);
 			}
