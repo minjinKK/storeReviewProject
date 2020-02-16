@@ -40,14 +40,14 @@ String session_id = (String)session.getAttribute("memberid");
 										<p class="about__subtitle">${placeVO.p_address}</p>
 										<p class="about__subtitle">${placeVO.p_tel}</p>
 										<p class="about__text">${placeVO.p_description}</p>
-
+										<p class="about__text">${scoreVO.taste}</p>
 										<!-- progress -->
 										<div class="progress2">
 											<h5 class="progress2__title">맛</h5>
 											<div class="progress2__wrap">
-												<div class="progress2__bar" data-progress-percent="33"
+												<div class="progress2__bar" data-progress-percent="${scoreVO.taste}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
-												<span class="progress2__number">39%</span>
+												<span class="progress2__number">${scoreVO.taste}</span>
 											</div>
 										</div>
 										<!-- End / progress -->
@@ -57,9 +57,9 @@ String session_id = (String)session.getAttribute("memberid");
 										<div class="progress2">
 											<h5 class="progress2__title">가성비</h5>
 											<div class="progress2__wrap">
-												<div class="progress2__bar" data-progress-percent="59"
+												<div class="progress2__bar" data-progress-percent="${scoreVO.price}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
-												<span class="progress2__number">47%</span>
+												<span class="progress2__number">${scoreVO.price}</span>
 											</div>
 										</div>
 										<!-- End / progress -->
@@ -69,9 +69,9 @@ String session_id = (String)session.getAttribute("memberid");
 										<div class="progress2">
 											<h5 class="progress2__title">회전율</h5>
 											<div class="progress2__wrap">
-												<div class="progress2__bar" data-progress-percent="53"
+												<div class="progress2__bar" data-progress-percent="${scoreVO.circul}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
-												<span class="progress2__number">59%</span>
+												<span class="progress2__number">${scoreVO.circul}</span>
 											</div>
 										</div>
 										<!-- End / progress -->
@@ -80,9 +80,9 @@ String session_id = (String)session.getAttribute("memberid");
 										<div class="progress2">
 											<h5 class="progress2__title">거리</h5>
 											<div class="progress2__wrap">
-												<div class="progress2__bar" data-progress-percent="53"
+												<div class="progress2__bar" data-progress-percent="${scoreVO.distance}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
-												<span class="progress2__number">59%</span>
+												<span class="progress2__number">${scoreVO.distance}</span>
 											</div>
 										</div>
 										<!-- End / progress -->
@@ -94,12 +94,9 @@ String session_id = (String)session.getAttribute("memberid");
 								</div>
 
 
-								<div class="tag-widget post-tag-container col-xs-12">
-									<div class="tagcloud ">
-										<a href="#" class="tag-cloud-link">Life</a> <a href="#"
-											class="tag-cloud-link">Sport</a> <a href="#"
-											class="tag-cloud-link">Tech</a> <a href="#"
-											class="tag-cloud-link">Travel</a>
+								<div class="about-author col-xs-12 mt-5">
+									<div class="desc">
+										<button type="button" class="btn py-3 px-4 btn-primary brn-reveiw-rightnow" onclick="location.href='joinUs.jsp' "><p>지금 리뷰를 남겨주세요!</p></button></h3>
 									</div>
 								</div>
 								<!-- 
@@ -243,8 +240,8 @@ String session_id = (String)session.getAttribute("memberid");
 	</div>
 	 
 	<jsp:include page="javaScript.jsp"></jsp:include>
-	<script src="./Resouces/js/progressbar.js"></script>
-	<script src="./Resouces/js/reviewstar.js"></script>
+	<script src="./Resouces/js/progressbar2.js"></script>
+	<script src="./Resouces/js/reviewstar2.js"></script>
 
 </body>
 </html>
