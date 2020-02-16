@@ -113,9 +113,8 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
-	 
 	<jsp:include page="javaScript.jsp"></jsp:include>
 	<script src="./Resouces/js/progressbar.js"></script>
-	<script src="./Resouces/js/reviewstar.js"></script>
+	<script src="./Resouces/js/reviewstar2.js"></script>
 </body>
 </html>
