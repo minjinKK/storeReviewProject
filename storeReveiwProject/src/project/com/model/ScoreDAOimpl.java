@@ -25,7 +25,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 	private final String RATE_PRICE = "select * from score_view order by s_price desc";
 	private final String RATE_DISTANCE = "select * from score_view order by s_distance desc";
 	private final String RATE_CIRCUL = "select * from score_view order by s_circul desc";
-	private final String SELECT_ONE = "select * from score_view where name ?";
+	private final String SELECT_ONE = "select * from score_view where p_name like ?";
 	public ScoreDAOimpl() {
 		System.out.println("ScoreDAOimpl()...");
 		// 1.DB Driver 연결
