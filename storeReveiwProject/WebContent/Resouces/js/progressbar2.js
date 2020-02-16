@@ -16,22 +16,22 @@ progress.each(function () {
 			    timing = progressBar.data("timing"),
 			    getPercent = progressBar.data('progress-percent');
 		
-		console.log(getPercent);
+		console.log( getPercent +'점');
 
 		progressBar.css({
-			'width': getPercent + '%',
+			'width': (getPercent*20) + '%',
 			'transition': 'all ' + durations + 'ms ' + timing,
 			'transition-delay': delay + 'ms'
 		});
 
 		setTimeout(function () {
-			progressNumber.prop('Counter', 0).animate({
+				progressNumber.prop('Counter', 0).animate({
 				Counter: getPercent
 			}, {
 				duration: durations,
 				easing: 'swing',
 				step: function step(now) {
-					$(this).text(Math.ceil(now) + '점');
+					$(this).text(Math.ceil((now*100)/100) + '점');
 				}
 			});
 		}, delay);
