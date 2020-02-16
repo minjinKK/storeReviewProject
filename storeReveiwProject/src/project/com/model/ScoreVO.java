@@ -7,6 +7,7 @@ public class ScoreVO {
 	private int price;
 	private int distance;
 	private int circul;
+	private int count;
 	public String getPname() {
 		return pname;
 	}
@@ -43,10 +44,17 @@ public class ScoreVO {
 	public void setCircul(int circul) {
 		this.circul = circul;
 	}
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	@Override
 	public String toString() {
 		return "ScoreVO [pname=" + pname + ", total=" + total + ", taste=" + taste + ", price=" + price + ", distance="
-				+ distance + ", circul=" + circul + "]";
+				+ distance + ", circul=" + circul + ", count=" + count + "]";
 	}
 	
 	
