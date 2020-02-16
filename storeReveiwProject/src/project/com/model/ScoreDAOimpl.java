@@ -57,13 +57,12 @@ public class ScoreDAOimpl implements ScoreDAO {
 			while (rs.next()) {
 				ScoreVO vo = new ScoreVO();
 				vo.setPname(rs.getString("p_name"));
-				vo.setTotal(rs.getInt("s_total"));
-				vo.setTaste(rs.getInt("s_taste"));
-				vo.setPrice(rs.getInt("s_price"));
-				vo.setDistance(rs.getInt("s_distance"));
-				vo.setCircul(rs.getInt("s_circul"));
+				vo.setTotal(rs.getFloat("s_total"));
+				vo.setTaste(rs.getFloat("s_taste"));
+				vo.setPrice(rs.getFloat("s_price"));
+				vo.setDistance(rs.getFloat("s_distance"));
+				vo.setCircul(rs.getFloat("s_circul"));
 				vo.setCount(rs.getInt("s_count"));
-				
 				list.add(vo);
 			}
 
@@ -116,11 +115,11 @@ public class ScoreDAOimpl implements ScoreDAO {
 			while (rs.next()) {
 				ScoreVO vo = new ScoreVO();
 				vo.setPname(rs.getString("p_name"));
-				vo.setTotal(rs.getInt("s_total"));
-				vo.setTaste(rs.getInt("s_taste"));
-				vo.setPrice(rs.getInt("s_price"));
-				vo.setDistance(rs.getInt("s_distance"));
-				vo.setCircul(rs.getInt("s_circul"));
+				vo.setTotal(rs.getFloat("s_total"));
+				vo.setTaste(rs.getFloat("s_taste"));
+				vo.setPrice(rs.getFloat("s_price"));
+				vo.setDistance(rs.getFloat("s_distance"));
+				vo.setCircul(rs.getFloat("s_circul"));
 				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 				System.out.println(list);
@@ -176,11 +175,11 @@ public class ScoreDAOimpl implements ScoreDAO {
 			while (rs.next()) {
 				ScoreVO vo = new ScoreVO();
 				vo.setPname(rs.getString("p_name"));
-				vo.setTotal(rs.getInt("s_total"));
-				vo.setTaste(rs.getInt("s_taste"));
-				vo.setPrice(rs.getInt("s_price"));
-				vo.setDistance(rs.getInt("s_distance"));
-				vo.setCircul(rs.getInt("s_circul"));
+				vo.setTotal(rs.getFloat("s_total"));
+				vo.setTaste(rs.getFloat("s_taste"));
+				vo.setPrice(rs.getFloat("s_price"));
+				vo.setDistance(rs.getFloat("s_distance"));
+				vo.setCircul(rs.getFloat("s_circul"));
 				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 			}
@@ -234,11 +233,11 @@ public class ScoreDAOimpl implements ScoreDAO {
 			while (rs.next()) {
 				ScoreVO vo = new ScoreVO();
 				vo.setPname(rs.getString("p_name"));
-				vo.setTotal(rs.getInt("s_total"));
-				vo.setTaste(rs.getInt("s_taste"));
-				vo.setPrice(rs.getInt("s_price"));
-				vo.setDistance(rs.getInt("s_distance"));
-				vo.setCircul(rs.getInt("s_circul"));
+				vo.setTotal(rs.getFloat("s_total"));
+				vo.setTaste(rs.getFloat("s_taste"));
+				vo.setPrice(rs.getFloat("s_price"));
+				vo.setDistance(rs.getFloat("s_distance"));
+				vo.setCircul(rs.getFloat("s_circul"));
 				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 			}
@@ -292,11 +291,11 @@ public class ScoreDAOimpl implements ScoreDAO {
 			while (rs.next()) {
 				ScoreVO vo = new ScoreVO();
 				vo.setPname(rs.getString("p_name"));
-				vo.setTotal(rs.getInt("s_total"));
-				vo.setTaste(rs.getInt("s_taste"));
-				vo.setPrice(rs.getInt("s_price"));
-				vo.setDistance(rs.getInt("s_distance"));
-				vo.setCircul(rs.getInt("s_circul"));
+				vo.setTotal(rs.getFloat("s_total"));
+				vo.setTaste(rs.getFloat("s_taste"));
+				vo.setPrice(rs.getFloat("s_price"));
+				vo.setDistance(rs.getFloat("s_distance"));
+				vo.setCircul(rs.getFloat("s_circul"));
 				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 			}
