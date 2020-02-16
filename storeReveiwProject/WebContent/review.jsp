@@ -88,12 +88,13 @@
 									<!-- End /  -->
 
 								</div>
-
-
 								<div class="about-author col-xs-12 mt-5">
+									<form action="reviewWrite.do" >
+									<input id="p_name_id" name="p_name" type="hidden" value="${placeVO.p_name}"> 
 									<div class="desc">
-										<button type="button" class="btn py-3 px-4 btn-primary brn-reveiw-rightnow" onclick="location.href='joinUs.jsp' "><p>지금 리뷰를 남겨주세요!</p></button></h3>
+										<input type="submit" value="지금 리뷰를 남겨주세요!" class="btn py-3 px-4 btn-primary brn-reveiw-rightnow">
 									</div>
+									</form>
 								</div>
 								<!-- 
 								<div class="about-author bg-light col-xs-12">
