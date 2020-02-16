@@ -36,7 +36,7 @@ String session_id = (String)session.getAttribute("memberid");
 
 									<!--  -->
 									<div class="mt-30">
-										<h2 class="about__title"><a href="reviewWrite.jsp" >${placeVO.p_name}</a></h2>
+										<h2 class="about__title">${placeVO.p_name}</h2>
 										<p class="about__subtitle">${placeVO.p_address}</p>
 										<p class="about__subtitle">${placeVO.p_tel}</p>
 										<p class="about__text">${placeVO.p_description}</p>
