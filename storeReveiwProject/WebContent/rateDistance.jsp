@@ -1,12 +1,9 @@
-<%@page import="project.com.model.PlaceVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import ="project.com.model.ScoreVO" %>
 <%
    ArrayList<ScoreVO> slist = (ArrayList<ScoreVO>) request.getAttribute("list");
-   ArrayList<PlaceVO> plist = (ArrayList<PlaceVO>) request.getAttribute("placeList");
-
 %>
 	
 <!DOCTYPE html>
@@ -45,15 +42,15 @@
 											<a class="nav-item nav-link" id="nav-home-tab"
 												 href="rateTotal.do" role="tab"
 												aria-controls="nav-home" aria-selected="false">총점</a> <a
-												class="nav-item nav-link active" id="nav-profile-tab"
+												class="nav-item nav-link" id="nav-profile-tab"
 												href="rateTaste.do" role="tab"
-												aria-controls="nav-profile" aria-selected="true">맛</a>
+												aria-controls="nav-profile" aria-selected="false">맛</a>
 											<a class="nav-item nav-link" id="nav-about-price"
 												href="ratePrice.do" role="tab"
 												aria-controls="nav-about" aria-selected="false">가성비</a>
-											<a class="nav-item nav-link" id="nav-contact-tab"
+											<a class="nav-item nav-link  active" id="nav-contact-tab"
 												 href="rateDistance.do" role="tab"
-												aria-controls="nav-contact" aria-selected="false">거리</a>
+												aria-controls="nav-contact" aria-selected="true">거리</a>
 											<a class="nav-item nav-link" id="nav-about-tab"
 												 href="rateCircul.do" role="tab"
 												aria-controls="nav-about" aria-selected="false">회전율</a>
@@ -109,7 +106,7 @@
 									</div>
 								</div>
 								<%
-									i++;}
+									}
 								%>
 								<!--  -->
 								<div class="col-md-12">

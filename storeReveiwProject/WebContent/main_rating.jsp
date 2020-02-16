@@ -41,18 +41,18 @@
 										<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
 											<a class="nav-item nav-link active" id="nav-home-tab"
 												 href="rateTotal.do" role="tab"
-												aria-controls="nav-home" aria-selected="true">총점</a> <a
+												aria-controls="nav-home" aria-selected="false">총점</a> <a
 												class="nav-item nav-link" id="nav-profile-tab"
 												 href="rateTaste.do" role="tab"
 												aria-controls="nav-profile" aria-selected="false">맛</a>
 											<a class="nav-item nav-link" id="nav-about-price"
-												href="#nav-about" role="tab"
+												href="ratePrice.do" role="tab"
 												aria-controls="nav-about" aria-selected="false">가성비</a>
 											<a class="nav-item nav-link" id="nav-contact-tab"
-												href="#nav-contact" role="tab"
+												href="rateDistance.do" role="tab"
 												aria-controls="nav-contact" aria-selected="false">거리</a>
 											<a class="nav-item nav-link" id="nav-about-tab"
-												href="#nav-about" role="tab"
+												href="rateCircul.do" role="tab"
 												aria-controls="nav-about" aria-selected="false">회전율</a>
 										</div>
 								</div>
