@@ -40,10 +40,19 @@ String session_id = (String)session.getAttribute("memberid");
 										<p class="about__subtitle">${placeVO.p_address}</p>
 										<p class="about__subtitle">${placeVO.p_tel}</p>
 										<p class="about__text">${placeVO.p_description}</p>
-										<p class="about__text">${scoreVO.taste}</p>
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">맛</h5>
+											<p class="progress2__title">총점</p>
+											<div class="progress2__wrap">
+												<div class="progress2__bar" data-progress-percent="${scoreVO.total}"
+													data-timing="ease" data-duration="1000" data-delay="100"></div>
+												<span class="progress2__number">${scoreVO.total}</span>
+											</div>
+										</div>
+										<!-- End / progress -->
+										<!-- progress -->
+										<div class="progress2">
+											<p class="progress2__title">맛</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.taste}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
@@ -55,7 +64,7 @@ String session_id = (String)session.getAttribute("memberid");
 
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">가성비</h5>
+											<p class="progress2__title">가성비</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.price}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
@@ -67,7 +76,7 @@ String session_id = (String)session.getAttribute("memberid");
 
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">회전율</h5>
+											<p class="progress2__title">회전율</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.circul}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
@@ -78,7 +87,7 @@ String session_id = (String)session.getAttribute("memberid");
 										
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">거리</h5>
+											<p class="progress2__title">거리</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.distance}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
