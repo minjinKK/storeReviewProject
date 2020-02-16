@@ -62,6 +62,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 				vo.setPrice(rs.getInt("s_price"));
 				vo.setDistance(rs.getInt("s_distance"));
 				vo.setCircul(rs.getInt("s_circul"));
+				vo.setCount(rs.getInt("s_count"));
 				
 				list.add(vo);
 			}
@@ -120,7 +121,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 				vo.setPrice(rs.getInt("s_price"));
 				vo.setDistance(rs.getInt("s_distance"));
 				vo.setCircul(rs.getInt("s_circul"));
-				
+				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 				System.out.println(list);
 			}
@@ -180,7 +181,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 				vo.setPrice(rs.getInt("s_price"));
 				vo.setDistance(rs.getInt("s_distance"));
 				vo.setCircul(rs.getInt("s_circul"));
-				
+				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 			}
 
@@ -238,7 +239,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 				vo.setPrice(rs.getInt("s_price"));
 				vo.setDistance(rs.getInt("s_distance"));
 				vo.setCircul(rs.getInt("s_circul"));
-				
+				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 			}
 
@@ -296,7 +297,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 				vo.setPrice(rs.getInt("s_price"));
 				vo.setDistance(rs.getInt("s_distance"));
 				vo.setCircul(rs.getInt("s_circul"));
-				
+				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
 			}
 

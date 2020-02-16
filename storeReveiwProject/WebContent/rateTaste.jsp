@@ -81,35 +81,33 @@
 							</div>
 								<!--  -->
 								<%
-									for (ScoreVO vo : slist) { 	int i=0;
+									int index=0;
+									for (ScoreVO vo : slist) { 	
 									%>
 								<div class="col-md-12">
 									<div class="blog-entry ftco-animate d-md-flex">
 										<a href="single.html" class="img img-2"
-											style="background-image: url(./Resouces/images/image_<%=i+1%>.jpg);"><%=i + 1%></a>
+											style="background-image: url(./Resouces/images/image_<%=index+1%>.jpg);"><%=index + 1%></a>
 										<div class="text text-2 pl-md-4">
 											<h3 class="mb-2">
-												<a href="single.html">식당이름<%= vo.getPname() %></a>
+												<a href="single.html"><%= vo.getPname() %></a>
 											</h3>
 											<div class="meta-wrap">
 												<p class="meta">
-													<span><i class="icon-calendar mr-2"></i>June 28,
-														2019</span> <span><a href="single.html"><i
-															class="icon-folder-o mr-2"></i>Travel</a></span> <span><i
-														class="icon-comment2 mr-2"></i>5 Comment</span>
+													<div id="meta-detail">
+													<span><i class="icon-star mr-2"></i><%= vo.getTotal() %></span> 
+													<span><i class="icon-folder-o mr-2"></i><%= plist.get(index).getP_country() %>
+													</span> 
+													<span><i class="icon-comment2 mr-2"></i><%= vo.getCount() %> Comment</span>
+													</div>
 												</p>
 											</div>
-											<p class="mb-4">A small river named Duden flows by their
-												place and supplies it with the necessary regelialia.</p>
-											<p>
-												<a href="#" class="btn-custom">Read More <span
-													class="ion-ios-arrow-forward"></span></a>
-											</p>
+											<p class="mb-4">정말 맛있는 <%= plist.get(index).getP_country() %> 집 <%= vo.getPname() %>의 주소는 ?    [<%= plist.get(index).getP_address() %> ]</p>
 										</div>
 									</div>
 								</div>
 								<%
-									i++;}
+								index++;}
 								%>
 								<!--  -->
 								<div class="col-md-12">

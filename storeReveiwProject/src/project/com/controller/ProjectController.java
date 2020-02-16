@@ -76,9 +76,9 @@ public class ProjectController extends HttpServlet {
 			
 			request.setAttribute("list", list);
 			
-			for(ScoreVO vo:list) {
-				System.out.println(vo.toString());
-			}
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			request.setAttribute("placeList", placeList);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
 			rd.forward(request, response);
@@ -91,14 +91,20 @@ public class ProjectController extends HttpServlet {
 			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
 			placeList = service.selectPlaceOne(list);
 			request.setAttribute("placeList", placeList);
+			
 			RequestDispatcher rd = request.getRequestDispatcher("rateTaste.jsp");
 			rd.forward(request, response);
+			
 		}else if (sPath.equals("/ratePrice.do")) {
 			System.out.println("rateprice");
 			ArrayList<ScoreVO> list = service.ratePrice();
 			System.out.println("list.size():"+list.size());
 			
 			request.setAttribute("list", list);
+			
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			request.setAttribute("placeList", placeList);
 			
 			for(ScoreVO vo:list) {
 				System.out.println(vo.toString());
@@ -112,7 +118,9 @@ public class ProjectController extends HttpServlet {
 			System.out.println("list.size():"+list.size());
 			
 			request.setAttribute("list", list);
-			
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			request.setAttribute("placeList", placeList);
 			for(ScoreVO vo:list) {
 				System.out.println(vo.toString());
 			}
@@ -125,7 +133,9 @@ public class ProjectController extends HttpServlet {
 			System.out.println("list.size():"+list.size());
 			
 			request.setAttribute("list", list);
-			
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			request.setAttribute("placeList", placeList);
 			for(ScoreVO vo:list) {
 				System.out.println(vo.toString());
 			}
