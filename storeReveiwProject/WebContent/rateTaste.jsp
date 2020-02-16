@@ -1,9 +1,12 @@
+<%@page import="project.com.model.PlaceVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import ="project.com.model.ScoreVO" %>
 <%
    ArrayList<ScoreVO> slist = (ArrayList<ScoreVO>) request.getAttribute("list");
+   ArrayList<PlaceVO> plist = (ArrayList<PlaceVO>) request.getAttribute("placeList");
+
 %>
 	
 <!DOCTYPE html>
@@ -103,7 +106,7 @@
 									</div>
 								</div>
 								<%
-									}
+									i++;}
 								%>
 								<!--  -->
 								<div class="col-md-12">

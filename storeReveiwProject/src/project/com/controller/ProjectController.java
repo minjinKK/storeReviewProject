@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import project.com.model.MemberVO;
+import project.com.model.PlaceVO;
 import project.com.model.ScoreVO;
 import project.com.service.ProjectService;
 
@@ -85,13 +86,11 @@ public class ProjectController extends HttpServlet {
 			System.out.println("ratetaste");
 			ArrayList<ScoreVO> list = service.rateTaste();
 			System.out.println("list.size():"+list.size());
-			
 			request.setAttribute("list", list);
 			
-			for(ScoreVO vo:list) {
-				System.out.println(vo.toString());
-			}
-			
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			request.setAttribute("placeList", placeList);
 			RequestDispatcher rd = request.getRequestDispatcher("rateTaste.jsp");
 			rd.forward(request, response);
 		}

@@ -19,7 +19,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 	private final String USER = "project";
 	private final String PASSWORD = "hi123456";
 
-	private final String SELECT_PLACE_ONE = "select * from place where p_name=? ";
+	private final String SELECT_PLACE_ONE = "select * from place where p_name like ? ";
 	public PlaceDAOimpl() {
 		System.out.println("ScoreDAOimpl()...");
 		// 1.DB Driver 연결
@@ -32,7 +32,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 		}
 	}
 	@Override
-	public ArrayList<PlaceVO> selectPlaceOne(String p_name) {
+	public ArrayList<PlaceVO> selectPlaceOne(ArrayList<ScoreVO> scoreList) {
 		System.out.println("selectPlaceOne()...");
 		ArrayList<PlaceVO> list = new ArrayList<PlaceVO>();
 		try {
@@ -42,19 +42,19 @@ public class PlaceDAOimpl implements PlaceDAO {
 
 			// 3. SQL 설정
 			pstmt = conn.prepareStatement(SELECT_PLACE_ONE);
-
-			// 4. DB처리 결과반환
-			rs = pstmt.executeQuery();// select
-			while (rs.next()) {
-				ScoreVO vo = new ScoreVO();
-				vo.setPname(rs.getString("p_name"));
-				vo.setTotal(rs.getInt("s_total"));
-				vo.setTaste(rs.getInt("s_taste"));
-				vo.setPrice(rs.getInt("s_price"));
-				vo.setDistance(rs.getInt("s_distance"));
-				vo.setCircul(rs.getInt("s_circul"));
+			for (ScoreVO vo : scoreList) {
+				pstmt.setString(1, vo.getPname());
+				rs = pstmt.executeQuery();// select
+				if(rs.next()) {
+					PlaceVO vo2 = new PlaceVO();
+					vo2.setP_address(rs.getString("p_address"));
+					vo2.setP_country(rs.getString("p_country"));
+					vo2.setP_img_name(rs.getString("p_img_name"));
+					vo2.setP_name(rs.getString("p_name"));
+					vo2.setP_num(rs.getInt("p_num"));
+					list.add(vo2);
+				}
 				
-				list.add(vo);
 			}
 
 		} catch (SQLException e) {
