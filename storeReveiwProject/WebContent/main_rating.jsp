@@ -94,10 +94,10 @@
 											<div class="meta-wrap">
 												<p class="meta">
 													<div id="meta-detail">
-													<span><i class="icon-star mr-2"></i><%= vo.getTotal() %></span> 
-													<span><i class="icon-folder-o mr-2"></i><%= plist.get(index).getP_country() %>
+													<span style="margin-right: 10px">총점<i class="icon-star mr-2"></i><%= vo.getTotal() %></span> 
+													<span style="margin-right: 10px"><i class="icon-folder-o mr-2"></i><%= plist.get(index).getP_country() %>
 													</span> 
-													<span><i class="icon-comment2 mr-2"></i><%= vo.getCount() %> Comment</span>
+													<span style="margin-right: 10px"><i class="icon-comment2 mr-2"></i><%= vo.getCount() %> Comment</span>
 													</div>
 												</p>
 											</div>

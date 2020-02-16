@@ -2,11 +2,11 @@ package project.com.model;
 
 public class ScoreVO {
 	private String pname;
-	private int total;
-	private int taste;
-	private int price;
-	private int distance;
-	private int circul;
+	private float total;
+	private float taste;
+	private float price;
+	private float distance;
+	private float circul;
 	private int count;
 	public String getPname() {
 		return pname;
@@ -14,34 +14,34 @@ public class ScoreVO {
 	public void setPname(String pname) {
 		this.pname = pname;
 	}
-	public int getTotal() {
+	public float getTotal() {
 		return total;
 	}
-	public void setTotal(int total) {
+	public void setTotal(float total) {
 		this.total = total;
 	}
-	public int getTaste() {
+	public float getTaste() {
 		return taste;
 	}
-	public void setTaste(int taste) {
+	public void setTaste(float taste) {
 		this.taste = taste;
 	}
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
-	public int getDistance() {
+	public float getDistance() {
 		return distance;
 	}
-	public void setDistance(int distance) {
+	public void setDistance(float distance) {
 		this.distance = distance;
 	}
-	public int getCircul() {
+	public float getCircul() {
 		return circul;
 	}
-	public void setCircul(int circul) {
+	public void setCircul(float circul) {
 		this.circul = circul;
 	}
 	
