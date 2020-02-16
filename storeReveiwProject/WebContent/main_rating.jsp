@@ -90,7 +90,7 @@
 											</h3>
 											<div class="meta-wrap">
 												<p class="meta">
-													<div id="meta detail">
+													<div id="meta-detail">
 													<span><i class="icon-star mr-2"></i>June 28,2019</span> 
 													<span><i class="icon-folder-o mr-2"></i>Travel
 													</span> 
