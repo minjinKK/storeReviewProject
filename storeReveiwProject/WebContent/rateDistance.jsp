@@ -39,20 +39,20 @@
 								<div class="col-md-12 py-5">
 									<nav>
 										<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-											<a class="nav-item nav-link active" id="nav-home-tab"
+											<a class="nav-item nav-link" id="nav-home-tab"
 												 href="rateTotal.do" role="tab"
 												aria-controls="nav-home" aria-selected="false">총점</a> <a
 												class="nav-item nav-link" id="nav-profile-tab"
-												 href="rateTaste.do" role="tab"
+												href="rateTaste.do" role="tab"
 												aria-controls="nav-profile" aria-selected="false">맛</a>
 											<a class="nav-item nav-link" id="nav-about-price"
 												href="ratePrice.do" role="tab"
 												aria-controls="nav-about" aria-selected="false">가성비</a>
-											<a class="nav-item nav-link" id="nav-contact-tab"
-												href="rateDistance.do" role="tab"
-												aria-controls="nav-contact" aria-selected="false">거리</a>
+											<a class="nav-item nav-link  active" id="nav-contact-tab"
+												 href="rateDistance.do" role="tab"
+												aria-controls="nav-contact" aria-selected="true">거리</a>
 											<a class="nav-item nav-link" id="nav-about-tab"
-												href="rateCircul.do" role="tab"
+												 href="rateCircul.do" role="tab"
 												aria-controls="nav-about" aria-selected="false">회전율</a>
 										</div>
 								</div>
@@ -86,20 +86,22 @@
 											style="background-image: url(./Resouces/images/image_<%=i+1%>.jpg);"><%=i + 1%></a>
 										<div class="text text-2 pl-md-4">
 											<h3 class="mb-2">
-												<a href="single.html"><%= vo.getPname() %></a>
+												<a href="single.html">식당이름<%= vo.getPname() %></a>
 											</h3>
 											<div class="meta-wrap">
 												<p class="meta">
-													<div id="meta detail">
-													<span><i class="icon-star mr-2"></i>June 28,2019</span> 
-													<span><i class="icon-folder-o mr-2"></i>Travel
-													</span> 
-													<span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-													</div>
+													<span><i class="icon-calendar mr-2"></i>June 28,
+														2019</span> <span><a href="single.html"><i
+															class="icon-folder-o mr-2"></i>Travel</a></span> <span><i
+														class="icon-comment2 mr-2"></i>5 Comment</span>
 												</p>
 											</div>
 											<p class="mb-4">A small river named Duden flows by their
 												place and supplies it with the necessary regelialia.</p>
+											<p>
+												<a href="#" class="btn-custom">Read More <span
+													class="ion-ios-arrow-forward"></span></a>
+											</p>
 										</div>
 									</div>
 								</div>

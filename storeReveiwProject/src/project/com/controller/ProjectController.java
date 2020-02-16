@@ -20,7 +20,7 @@ import project.com.service.ProjectService;
 /**
  * Servlet implementation class ProjectController
  */
-@WebServlet({"/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do"})
+@WebServlet({"/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do",})
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProjectService service;   
@@ -95,6 +95,45 @@ public class ProjectController extends HttpServlet {
 			}
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateTaste.jsp");
+			rd.forward(request, response);
+		}else if (sPath.equals("/ratePrice.do")) {
+			System.out.println("rateprice");
+			ArrayList<ScoreVO> list = service.ratePrice();
+			System.out.println("list.size():"+list.size());
+			
+			request.setAttribute("list", list);
+			
+			for(ScoreVO vo:list) {
+				System.out.println(vo.toString());
+			}
+			
+			RequestDispatcher rd = request.getRequestDispatcher("ratePrice.jsp");
+			rd.forward(request, response);
+		}else if (sPath.equals("/rateDistance.do")) {
+			System.out.println("ratedistance");
+			ArrayList<ScoreVO> list = service.rateDistance();
+			System.out.println("list.size():"+list.size());
+			
+			request.setAttribute("list", list);
+			
+			for(ScoreVO vo:list) {
+				System.out.println(vo.toString());
+			}
+			
+			RequestDispatcher rd = request.getRequestDispatcher("rateDistance.jsp");
+			rd.forward(request, response);
+		}else if (sPath.equals("/rateCircul.do")) {
+			System.out.println("ratecircul");
+			ArrayList<ScoreVO> list = service.rateCircul();
+			System.out.println("list.size():"+list.size());
+			
+			request.setAttribute("list", list);
+			
+			for(ScoreVO vo:list) {
+				System.out.println(vo.toString());
+			}
+			
+			RequestDispatcher rd = request.getRequestDispatcher("rateCircul.jsp");
 			rd.forward(request, response);
 		}
 	}
