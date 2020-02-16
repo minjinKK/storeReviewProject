@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
 <title>상세리뷰보기</title>
@@ -31,19 +32,10 @@
 
 									<!--  -->
 									<div class="mt-30">
-										<h2 class="about__title">식당이름</h2>
-										<p class="about__subtitle">Just Keep Scrolling! How To
-											Design Lengthy, Lengthy Pages</p>
-										<p class="about__text">식당소개란다. Maecenas lorem ex, euismod eget
-											pulvinar non, facilisis ut leo. Quisque placerat purus in
-											neque efficitur ornare. Nam at justo magna. Aliquam venenatis
-											odio ante, non euismod augue porttitor eget. Maecenas nec
-											viverra eros, eget euismod felis. Integer cursus libero sed
-											lorem euismod, vel iaculis felis placerat. Pellentesque augue
-											lacus, sodales et eros sed, molestie rhoncus ligula. Vivamus
-											sed massa lorem. Suspendisse mollis lectus nec ex fermentum,
-											in consectetur dolor egestas. Phasellus quis ipsum quis nisl
-											ultricies sollicitudin id in dolor. Proin at consequat dui.</p>
+										<h2 class="about__title">${placeVO.p_name}</h2>
+										<p class="about__subtitle">${placeVO.p_address}</p>
+										<p class="about__subtitle">${placeVO.p_tel}</p>
+										<p class="about__text">${placeVO.p_description}</p>
 
 										<!-- progress -->
 										<div class="progress2">

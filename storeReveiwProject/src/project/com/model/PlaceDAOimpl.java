@@ -19,7 +19,8 @@ public class PlaceDAOimpl implements PlaceDAO {
 	private final String USER = "project";
 	private final String PASSWORD = "hi123456";
 
-	private final String SELECT_PLACE_ONE = "select * from place where p_name like ? ";
+	private final String SELECT_PLACE_ONE_LIST = "select * from place where p_name like ? ";
+	private final String SELECT_PLACE_ONE_NAME = "select * from place where p_name like ? ";
 	public PlaceDAOimpl() {
 		System.out.println("ScoreDAOimpl()...");
 		// 1.DB Driver 연결
@@ -41,7 +42,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 			System.out.println("conn successed...");
 
 			// 3. SQL 설정
-			pstmt = conn.prepareStatement(SELECT_PLACE_ONE);
+			pstmt = conn.prepareStatement(SELECT_PLACE_ONE_LIST);
 			for (ScoreVO vo : scoreList) {
 				pstmt.setString(1, vo.getPname());
 				rs = pstmt.executeQuery();// select
@@ -52,6 +53,8 @@ public class PlaceDAOimpl implements PlaceDAO {
 					vo2.setP_img_name(rs.getString("p_img_name"));
 					vo2.setP_name(rs.getString("p_name"));
 					vo2.setP_num(rs.getInt("p_num"));
+					vo2.setP_tel(rs.getString("p_tel"));
+					vo2.setP_description(rs.getString("p_description"));
 					list.add(vo2);
 				}
 				
@@ -86,6 +89,62 @@ public class PlaceDAOimpl implements PlaceDAO {
 		}
 
 		return list;
+	}
+	@Override
+	public PlaceVO selectPlaceOne(PlaceVO vo) {
+		System.out.println("selectPlaceOne()...");
+		PlaceVO vo2 = new PlaceVO();
+		try {
+			// 2. 커넥션
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			System.out.println("conn successed...");
+			///////////////////////////////////////
+			// 3.SQL 설정
+			pstmt = conn.prepareStatement(SELECT_PLACE_ONE_NAME);
+			pstmt.setString(1, vo.getP_name());
+			// 4.결과 반환(DB 처리 결과1)
+			rs = pstmt.executeQuery();// select 용
+			if(!rs.next())System.out.println("fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			else {
+				vo2.setP_address(rs.getString("p_address"));
+				vo2.setP_country(rs.getString("p_country"));
+				vo2.setP_img_name(rs.getString("p_img_name"));
+				vo2.setP_name(rs.getString("p_name"));
+				vo2.setP_num(rs.getInt("p_num"));
+				vo2.setP_tel(rs.getString("p_tel"));
+				vo2.setP_description(rs.getString("p_description"));
+			}
+			///////////////
+			
+		} catch (SQLException e) {
+			System.out.println("conn failed...");
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return vo2;
 	}
 
 }

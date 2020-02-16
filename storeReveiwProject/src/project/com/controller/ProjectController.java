@@ -14,12 +14,10 @@ import project.com.model.MemberVO;
 import project.com.model.PlaceVO;
 import project.com.model.ScoreVO;
 import project.com.service.ProjectService;
-
-
 /**
  * Servlet implementation class ProjectController
  */
-@WebServlet({"/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do",})
+@WebServlet({"/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProjectService service;   
@@ -142,7 +140,19 @@ public class ProjectController extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateCircul.jsp");
 			rd.forward(request, response);
+		}else if (sPath.equals("/review.do")) {
+			//System.out.println("넘어온 이름은??"+request.getParameter("p_name"));
+			PlaceVO vo = new PlaceVO();
+			vo.setP_name(request.getParameter("p_name"));
+			PlaceVO vo2 = service.selectPlaceOne(vo);
+			System.out.println(vo2);
+			request.setAttribute("placeVO", vo2);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("review.jsp");
+			rd.forward(request, response);
 		}
+		
+		
 	}
 	
 

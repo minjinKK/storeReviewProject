@@ -89,7 +89,7 @@
 											style="background-image: url(./Resouces/images/image_<%=index+1%>.jpg);"><%=index + 1%></a>
 										<div class="text text-2 pl-md-4">
 											<h3 class="mb-2">
-												<a href="single.html"><%= vo.getPname() %></a>
+												<a href="review.do?p_name=<%= vo.getPname() %>"><%= vo.getPname() %></a>
 											</h3>
 											<div class="meta-wrap">
 												<p class="meta">

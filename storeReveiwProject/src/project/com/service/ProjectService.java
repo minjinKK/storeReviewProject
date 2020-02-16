@@ -44,5 +44,9 @@ public class ProjectService {
 			public ArrayList<PlaceVO> selectPlaceOne(ArrayList<ScoreVO> list) {
 				// TODO Auto-generated method stub
 				return pdao.selectPlaceOne(list);
+			}
+			public PlaceVO selectPlaceOne(PlaceVO vo) {
+				// TODO Auto-generated method stub
+				return pdao.selectPlaceOne(vo);
 			} 
 }
