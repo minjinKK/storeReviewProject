@@ -19,14 +19,10 @@ public class PlaceDAOimpl implements PlaceDAO {
 	private final String USER = "project";
 	private final String PASSWORD = "hi123456";
 
-<<<<<<< HEAD
-	private final String SELECT_PLACE_ONE_LIST = "select * from place where p_name like ? ";
-	private final String SELECT_PLACE_ONE_NAME = "select * from place where p_name like ? ";
-=======
-	private final String SELECT_PLACE_ONE = "select * from place where p_name like ? ";
+	private final String SELECT_PLACE_ONE= "select * from place where p_name like ? ";
+
 	private final String SEARCH_ALL = "select * from score_view where p_name like '%' ||?||'%' ";
 
->>>>>>> 1f56d79eb53dd84317c357670ccd92eb01fc1de4
 	public PlaceDAOimpl() {
 		System.out.println("ScoreDAOimpl()...");
 		// 1.DB Driver 연결
@@ -48,7 +44,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 			System.out.println("conn successed...");
 
 			// 3. SQL 설정
-			pstmt = conn.prepareStatement(SELECT_PLACE_ONE_LIST);
+			pstmt = conn.prepareStatement(SELECT_PLACE_ONE);
 			for (ScoreVO vo : scoreList) {
 				pstmt.setString(1, vo.getPname());
 				rs = pstmt.executeQuery();// select
@@ -96,33 +92,22 @@ public class PlaceDAOimpl implements PlaceDAO {
 
 		return list;
 	}
-<<<<<<< HEAD
+
 	@Override
 	public PlaceVO selectPlaceOne(PlaceVO vo) {
 		System.out.println("selectPlaceOne()...");
 		PlaceVO vo2 = new PlaceVO();
-=======
-	
-	public ArrayList<ScoreVO> searchAll(String searchWord){
-		ArrayList<ScoreVO> list = new ArrayList<ScoreVO>();
-		System.out.println("searchall()...");
-		
-		ScoreVO vo = new ScoreVO();
-
->>>>>>> 1f56d79eb53dd84317c357670ccd92eb01fc1de4
 		try {
 			// 2. 커넥션
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
 			System.out.println("conn successed...");
-<<<<<<< HEAD
-			///////////////////////////////////////
-			// 3.SQL 설정
-			pstmt = conn.prepareStatement(SELECT_PLACE_ONE_NAME);
+
+			// 3. SQL 설정
+			pstmt = conn.prepareStatement(SELECT_PLACE_ONE);
 			pstmt.setString(1, vo.getP_name());
-			// 4.결과 반환(DB 처리 결과1)
-			rs = pstmt.executeQuery();// select 용
-			if(!rs.next())System.out.println("fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			else {
+			rs = pstmt.executeQuery();// select
+			if(!rs.next()) System.out.println("selectplaceone____fail");
+			else{
 				vo2.setP_address(rs.getString("p_address"));
 				vo2.setP_country(rs.getString("p_country"));
 				vo2.setP_img_name(rs.getString("p_img_name"));
@@ -131,36 +116,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 				vo2.setP_tel(rs.getString("p_tel"));
 				vo2.setP_description(rs.getString("p_description"));
 			}
-			///////////////
-			
-=======
 
-			// 3. SQL 설정
-			pstmt = conn.prepareStatement(SEARCH_ALL);
-			
-			pstmt.setString(1,searchWord);
-			
-			// 4. DB처리 결과반환
-			rs = pstmt.executeQuery();// select
-			
-			System.out.println(rs);
-	
-			while (rs.next()) {
-				
-				vo.setPname(rs.getString("p_name"));
-				vo.setTotal(rs.getInt("s_total"));
-				vo.setTaste(rs.getInt("s_taste"));
-				vo.setPrice(rs.getInt("s_price"));;
-				vo.setDistance(rs.getInt("s_distance"));
-				vo.setCircul(rs.getInt("s_circul"));
-				vo.setCount(rs.getInt("s_count"));;
-				
-				System.out.println();
-				
-				list.add(vo);
-			}
-
->>>>>>> 1f56d79eb53dd84317c357670ccd92eb01fc1de4
 		} catch (SQLException e) {
 			System.out.println("conn failed...");
 			e.printStackTrace();
@@ -189,11 +145,77 @@ public class PlaceDAOimpl implements PlaceDAO {
 
 		}
 
-<<<<<<< HEAD
 		return vo2;
-=======
-		return list;
->>>>>>> 1f56d79eb53dd84317c357670ccd92eb01fc1de4
+	}
+		
+
+	
+	public ArrayList<ScoreVO> searchAll(String searchWord){
+		ArrayList<ScoreVO> list = new ArrayList<ScoreVO>();
+		System.out.println("searchall()...");
+
+		ScoreVO vo = new ScoreVO();
+
+
+		try {
+			// 2. 커넥션
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			System.out.println("conn successed...");
+
+			///////////////////////////////////////
+			// 3.SQL 설정
+			pstmt = conn.prepareStatement(SEARCH_ALL);
+			pstmt.setString(1, searchWord);
+			// 4.결과 반환(DB 처리 결과1)
+			rs = pstmt.executeQuery();// select 용
+			if(!rs.next())System.out.println("fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			else {
+				System.out.println(vo);
+				vo.setPname(rs.getString("p_name"));
+				vo.setTotal(rs.getFloat("s_total"));;
+				vo.setTaste(rs.getFloat("s_taste"));
+				vo.setPrice(rs.getFloat("s_price"));
+				vo.setDistance(rs.getFloat("s_distance"));
+				vo.setCircul(rs.getFloat("s_circul"));
+				vo.setCount(rs.getInt("s_count"));
+			
+			///////////////
+
+				
+				System.out.println();
+				
+				list.add(vo);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("conn failed...");
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+return list;
 	}
 
 }

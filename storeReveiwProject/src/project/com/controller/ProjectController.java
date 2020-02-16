@@ -17,11 +17,9 @@ import project.com.service.ProjectService;
 /**
  * Servlet implementation class ProjectController
  */
-<<<<<<< HEAD
-@WebServlet({"/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
-=======
-@WebServlet({"/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do",})
->>>>>>> 1f56d79eb53dd84317c357670ccd92eb01fc1de4
+
+@WebServlet({"/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
+
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProjectService service;   
@@ -144,7 +142,7 @@ public class ProjectController extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateCircul.jsp");
 			rd.forward(request, response);
-<<<<<<< HEAD
+
 		}else if (sPath.equals("/review.do")) {
 			//System.out.println("넘어온 이름은??"+request.getParameter("p_name"));
 			PlaceVO vo = new PlaceVO();
@@ -154,7 +152,7 @@ public class ProjectController extends HttpServlet {
 			request.setAttribute("placeVO", vo2);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("review.jsp");
-=======
+
 		}else if (sPath.equals("/searchAll.do")) {
 			System.out.println("selectAll");
 			String searchWord = request.getParameter("searchWord");
@@ -167,7 +165,7 @@ public class ProjectController extends HttpServlet {
 			request.setAttribute("placeList", placeList);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
->>>>>>> 1f56d79eb53dd84317c357670ccd92eb01fc1de4
+
 			rd.forward(request, response);
 		}
 		

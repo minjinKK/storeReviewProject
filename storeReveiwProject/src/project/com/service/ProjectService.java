@@ -45,15 +45,15 @@ public class ProjectService {
 			
 				return pdao.selectPlaceOne(list);
 			}
-<<<<<<< HEAD
+
 			public PlaceVO selectPlaceOne(PlaceVO vo) {
 				// TODO Auto-generated method stub
 				return pdao.selectPlaceOne(vo);
 			} 
-=======
+
 		public ArrayList<ScoreVO> searchAll(String searchWord) {
 			
 			return pdao.searchAll(searchWord);
 		} 
->>>>>>> 1f56d79eb53dd84317c357670ccd92eb01fc1de4
+
 }
