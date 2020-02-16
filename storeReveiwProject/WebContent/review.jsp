@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+
+String session_id = (String)session.getAttribute("memberid");
+%>
 <html lang="en">
 <head>
 <title>상세리뷰보기</title>
@@ -32,7 +36,7 @@
 
 									<!--  -->
 									<div class="mt-30">
-										<h2 class="about__title">${placeVO.p_name}</h2>
+										<h2 class="about__title"><a href="reviewWrite.jsp" >${placeVO.p_name}</a></h2>
 										<p class="about__subtitle">${placeVO.p_address}</p>
 										<p class="about__subtitle">${placeVO.p_tel}</p>
 										<p class="about__text">${placeVO.p_description}</p>

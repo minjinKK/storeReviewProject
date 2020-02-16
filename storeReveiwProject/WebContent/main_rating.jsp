@@ -9,6 +9,7 @@
 	String memberid = request.getParameter("memberid");
 	
 	session.setAttribute("memberid", memberid);
+	String session_id = (String)session.getAttribute("memberid");
 %>
 	
 <!DOCTYPE html>

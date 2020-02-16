@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+String session_id = (String) session.getAttribute("memberid");
+	%>
 <html lang="en">
 <head>
 <title>리뷰작성</title>
@@ -74,6 +77,7 @@
 									<div class="comment-form-wrap pt-5">
 										<h3 class="mb-5">평가 쓰기</h3>
 										<form action="insert_review.do" class="p-3 p-md-5 bg-light">
+										<input name = "memberid" type = "text" value = "<%=session_id %>" readonly>
 										<input id="r_taste" name="rating_taste" type="hidden"> 
 										<input id="r_price" name="rating__price" type="hidden"> 
 										<input id="r_circul" name="rating_circul" type="hidden"> 

@@ -18,11 +18,12 @@ import project.com.service.ProjectService;
  * Servlet implementation class ProjectController
  */
 
-@WebServlet({"/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
+@WebServlet({"/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
 
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProjectService service;   
+	String current;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -54,6 +55,7 @@ public class ProjectController extends HttpServlet {
 			if ( vo2.getMemberid() != null) {
 			
 			request.setAttribute("memberid", vo2.getMemberid());
+			current = vo.getMemberid();
 				
 			System.out.println("login result success");
 			
@@ -168,6 +170,18 @@ public class ProjectController extends HttpServlet {
 			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
 			placeList = service.selectPlaceOne(list);
 			request.setAttribute("placeList", placeList);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
+
+			rd.forward(request, response);
+		}else if (sPath.equals("/reviewWrite.do")) {
+			System.out.println("reviewWrite");
+			
+			String memberid = request.getParameter("memberid");
+			
+			//int result = service.insertReview();
+			//System.out.println("list.size():"+list.size());
+			
 			
 			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
 
