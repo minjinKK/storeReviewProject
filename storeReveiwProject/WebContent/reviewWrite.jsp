@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 String session_id = (String) session.getAttribute("memberid");
+String p_name = (String)request.getAttribute("p_name");
 	%>
 <html lang="en">
 <head>
@@ -49,7 +50,7 @@ String session_id = (String) session.getAttribute("memberid");
 							<div class="col-md-12 py-1">
 								<div class="comment-form-wrap pt-5">
 								<div class="tag-widget post-tag-container col-xs-12">
-									<h2 class="mb-5">식당이름</h2>
+									<h2 class="mb-5"><%=p_name %></h2>
 								</div>
 								<div class="col-xs-12 review_box">
 									 <p class="review__text">맛</p>

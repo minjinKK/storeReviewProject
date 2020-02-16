@@ -44,7 +44,7 @@ public class ReviewDAOimpl implements ReviewDAO {
 
 			// 3. SQL 설정
 			pstmt = conn.prepareStatement(INSERT_REVIEW);
-			
+			pstmt.setInt();
 				
 			}
 

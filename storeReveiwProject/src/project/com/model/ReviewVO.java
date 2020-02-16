@@ -48,7 +48,7 @@ public class ReviewVO {
 	public int getRtaste() {
 		return rtaste;
 	}
-	public void setR_aste(int r_taste) {
+	public void setRtaste(int r_taste) {
 		this.rtaste = r_taste;
 	}
 	public int getRprice() {

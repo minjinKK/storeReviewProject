@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import project.com.model.MemberVO;
 import project.com.model.PlaceVO;
+import project.com.model.ReviewVO;
 import project.com.model.ScoreVO;
 import project.com.service.ProjectService;
 /**
@@ -177,14 +178,30 @@ public class ProjectController extends HttpServlet {
 			rd.forward(request, response);
 		}else if (sPath.equals("/reviewWrite.do")) {
 			System.out.println("reviewWrite");
+			ReviewVO rvo = new ReviewVO();
+			PlaceVO pvo = new PlaceVO();
+			PlaceVO pvo2 = new PlaceVO();
 			
 			String memberid = request.getParameter("memberid");
 			
-			//int result = service.insertReview();
-			//System.out.println("list.size():"+list.size());
+			String pname=request.getParameter("p_name");
+
 			
 			
-			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
+			pvo.setP_name("pname");
+			pvo2 = service.selectPlaceOne(pvo);
+			
+			rvo.setMemberid(memberid);
+			rvo.setPname(pname);
+			rvo.setPnum(pvo2.getP_num());
+			
+			
+			
+			
+			int result = service.insertReview();
+			request.setAttribute("p_name", pname);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("reviewWrite.jsp");
 
 			rd.forward(request, response);
 		}
