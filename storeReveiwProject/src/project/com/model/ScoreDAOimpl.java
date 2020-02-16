@@ -25,7 +25,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 	private final String RATE_PRICE = "select * from score_view order by s_price desc";
 	private final String RATE_DISTANCE = "select * from score_view order by s_distance desc";
 	private final String RATE_CIRCUL = "select * from score_view order by s_circul desc";
-	
+	private final String SELECT_ONE = "select * from score_view where name ?";
 	public ScoreDAOimpl() {
 		System.out.println("ScoreDAOimpl()...");
 		// 1.DB Driver 연결
@@ -329,6 +329,62 @@ public class ScoreDAOimpl implements ScoreDAO {
 		}
 
 		return list;
+	}
+
+
+	@Override
+	public ScoreVO selectScoreOne(ScoreVO svo) {
+		System.out.println("selectPlaceOne()...");
+		ScoreVO svo2 = new ScoreVO();
+		try {
+			// 2. 커넥션
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			System.out.println("conn successed...");
+
+			// 3. SQL 설정
+			pstmt = conn.prepareStatement(SELECT_ONE);
+			pstmt.setString(1, svo.getPname());
+			rs = pstmt.executeQuery();// select
+			if(!rs.next()) System.out.println("selectplaceone____fail");
+			else{
+				svo2.setCircul(rs.getFloat("s_circul"));
+				svo2.setCount(rs.getInt("s_count"));
+				svo2.setDistance(rs.getFloat("s_distance"));
+				svo2.setPname(rs.getString("p_name"));
+				svo2.setPrice(rs.getFloat("s_price"));
+				svo2.setTaste(rs.getFloat("s_taste"));
+				svo2.setTotal(rs.getFloat("s_total"));
+			}
+
+		} catch (SQLException e) {
+			System.out.println("conn failed...");
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return svo2;
 	}
 
 }

@@ -151,6 +151,11 @@ public class ProjectController extends HttpServlet {
 			System.out.println(vo2);
 			request.setAttribute("placeVO", vo2);
 			
+			ScoreVO svo = new ScoreVO();
+			svo.setPname((request.getParameter("p_name")));
+			ScoreVO svo2 = service.selectScoreOne(svo);
+			request.setAttribute("storeVO", svo2);
+			
 			RequestDispatcher rd = request.getRequestDispatcher("review.jsp");
 			rd.forward(request, response);
 		}else if (sPath.equals("/searchAll.do")) {

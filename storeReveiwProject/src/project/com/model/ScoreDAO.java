@@ -8,4 +8,5 @@ public interface ScoreDAO {
 	public ArrayList<ScoreVO> ratePrice();
 	public ArrayList<ScoreVO> rateDistance();
 	public ArrayList<ScoreVO> rateCircul();
+	public ScoreVO selectScoreOne(ScoreVO svo);
 }
