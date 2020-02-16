@@ -28,7 +28,7 @@ String session_id = (String)session.getAttribute("memberid");
 							<div class="row pt-md-4">
 
 								<div class="col-md-6 col-lg-5 " id="review_main_img">
-									<img src="./Resouces/images/image_1.jpg"
+									<img src="./Resouces/images/${placeVO.p_img_name}"
 										alt="Image placeholder" class="img-fluid mb-4">
 								</div>
 								<div
@@ -36,14 +36,23 @@ String session_id = (String)session.getAttribute("memberid");
 
 									<!--  -->
 									<div class="mt-30">
-										<h2 class="about__title"><a href="reviewWrite.jsp" >${placeVO.p_name}</a></h2>
+										<h2 class="about__title">${placeVO.p_name}</h2>
 										<p class="about__subtitle">${placeVO.p_address}</p>
-										<p class="about__subtitle">${placeVO.p_tel}</p>
+										<p class="about__subtitle"><i class="icon-phone mr-2"></i>${placeVO.p_tel}</p>
 										<p class="about__text">${placeVO.p_description}</p>
-										<p class="about__text">${scoreVO.taste}</p>
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">맛</h5>
+											<p class="progress2__title">총점</p>
+											<div class="progress2__wrap">
+												<div class="progress2__bar" data-progress-percent="${scoreVO.total}"
+													data-timing="ease" data-duration="1000" data-delay="100"></div>
+												<span class="progress2__number">${scoreVO.total}</span>
+											</div>
+										</div>
+										<!-- End / progress -->
+										<!-- progress -->
+										<div class="progress2">
+											<p class="progress2__title">맛</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.taste}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
@@ -55,7 +64,7 @@ String session_id = (String)session.getAttribute("memberid");
 
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">가성비</h5>
+											<p class="progress2__title">가성비</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.price}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
@@ -67,7 +76,7 @@ String session_id = (String)session.getAttribute("memberid");
 
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">회전율</h5>
+											<p class="progress2__title">회전율</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.circul}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
@@ -78,7 +87,7 @@ String session_id = (String)session.getAttribute("memberid");
 										
 										<!-- progress -->
 										<div class="progress2">
-											<h5 class="progress2__title">거리</h5>
+											<p class="progress2__title">거리</p>
 											<div class="progress2__wrap">
 												<div class="progress2__bar" data-progress-percent="${scoreVO.distance}"
 													data-timing="ease" data-duration="1000" data-delay="100"></div>
@@ -130,61 +139,30 @@ String session_id = (String)session.getAttribute("memberid");
 								-->
 	
 								<div class="pt-5 mt-5">
-									<h3 class="mb-5 font-weight-bold">6 Comments</h3>
+									<h3 class="mb-5 font-weight-bold">현재 ${scoreVO.count} 개의 리뷰가 있습니다!</h3>
 									<ul class="comment-list">
-										<li class="comment">
+										<c:forEach var="rvo" items="${rvoList}" >
+											<!--  
+											<td><a href="update.do?num=${vo.num}">${vo.num}</a></td>
+											<td>${vo.name}</td>
+											<td><img src="uploadimg/${vo.saveName}" width="50"/></td>
+											<td><a href="deleteOK.do?num=${vo.num}">삭제</a></td>
+											-->
+											<li class="comment">
 											<div class="vcard bio">
 												<img src="./Resouces/images/person_1.jpg"
 													alt="Image placeholder">
 											</div>
 											<div class="comment-body">
-												<h3>John Doe</h3>
-												<div class="meta">October 03, 2018 at 2:21pm</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-													vitae autem, eum officia, fugiat saepe enim sapiente iste
-													iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+												<h3>${rvo.memberid}</h3>
+												<div class="meta">${rvo.rWdate}</div>
+												<p>${rvo.rtext}</p>
 												<p>
-													<a href="#" class="reply">Reply</a>
+													<!--  <a href="#" class="reply">Reply</a>-->
 												</p>
 											</div>
 										</li>
-
-										<li class="comment">
-											<div class="vcard bio">
-												<img src="./Resouces/images/person_1.jpg"
-													alt="Image placeholder">
-											</div>
-											<div class="comment-body">
-												<h3>John Doe</h3>
-												<div class="meta">October 03, 2018 at 2:21pm</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-													vitae autem, eum officia, fugiat saepe enim sapiente iste
-													iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-												<p>
-													<a href="#" class="reply">Reply</a>
-												</p>
-											</div>
-										</li>
-
-										<li class="comment">
-											<div class="vcard bio">
-												<img src="./Resouces/images/person_1.jpg"
-													alt="Image placeholder">
-											</div>
-											<div class="comment-body">
-												<h3>John Doe</h3>
-												<div class="meta">October 03, 2018 at 2:21pm</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-													vitae autem, eum officia, fugiat saepe enim sapiente iste
-													iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-												<p>
-													<a href="#" class="reply">Reply</a>
-												</p>
-											</div>
-										</li>
+										</c:forEach>
 									</ul>
 									<!-- END comment-list -->
 									<!-- 

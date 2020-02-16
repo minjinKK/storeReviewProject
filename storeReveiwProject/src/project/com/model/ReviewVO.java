@@ -1,5 +1,7 @@
 package project.com.model;
 
+import java.util.Date;
+
 public class ReviewVO {
 	private int rnum;
 	private int pnum;
@@ -9,12 +11,19 @@ public class ReviewVO {
 	private int rdistance;
 	private int rcircul;
 	private int rtotal;
-	
+	private String rWdate;
 	private String memberid;
 	private String pname;
 	
-	
-	
+	public String getrWdate() {
+		return rWdate;
+	}
+	public void setrWdate(String rWdate) {
+		this.rWdate = rWdate;
+	}
+	public void setRtaste(int rtaste) {
+		this.rtaste = rtaste;
+	}
 	public String getMemberid() {
 		return memberid;
 	}
@@ -78,8 +87,8 @@ public class ReviewVO {
 	@Override
 	public String toString() {
 		return "ReviewVO [rnum=" + rnum + ", pnum=" + pnum + ", rtext=" + rtext + ", rtaste=" + rtaste + ", rprice="
-				+ rprice + ", rdistance=" + rdistance + ", rcircul=" + rcircul + ", rtotal=" + rtotal + ", memberid="
-				+ memberid + ", pname=" + pname + "]";
+				+ rprice + ", rdistance=" + rdistance + ", rcircul=" + rcircul + ", rtotal=" + rtotal + ", rWdate="
+				+ rWdate + ", memberid=" + memberid + ", pname=" + pname + "]";
 	}
 	
 	
