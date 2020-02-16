@@ -46,7 +46,7 @@
 												 href="rateTaste.do" role="tab"
 												aria-controls="nav-profile" aria-selected="false">맛</a>
 											<a class="nav-item nav-link" id="nav-about-price"
-												data-toggle="tab" href="#nav-about" role="tab"
+												href="#nav-about" role="tab"
 												aria-controls="nav-about" aria-selected="false">가성비</a>
 											<a class="nav-item nav-link" id="nav-contact-tab"
 												href="#nav-contact" role="tab"
