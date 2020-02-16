@@ -82,7 +82,7 @@ public class ProjectController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
 			rd.forward(request, response);
 		}else if (sPath.equals("/rateTaste.do")) {
-			
+			System.out.println("ratetaste");
 			ArrayList<ScoreVO> list = service.rateTaste();
 			System.out.println("list.size():"+list.size());
 			
@@ -92,7 +92,7 @@ public class ProjectController extends HttpServlet {
 				System.out.println(vo.toString());
 			}
 			
-			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("rateTaste.jsp");
 			rd.forward(request, response);
 		}
 	}
