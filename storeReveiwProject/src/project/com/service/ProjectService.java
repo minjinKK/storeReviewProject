@@ -54,6 +54,10 @@ public class ProjectService {
 		public ArrayList<ScoreVO> searchAll(String searchWord) {
 			
 			return pdao.searchAll(searchWord);
+		}
+		public ScoreVO selectScoreOne(ScoreVO svo) {
+			// TODO Auto-generated method stub
+			return sdao.selectScoreOne(svo);
 		} 
 
 }
