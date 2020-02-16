@@ -86,7 +86,7 @@ ArrayList<PlaceVO> plist = (ArrayList<PlaceVO>) request.getAttribute("placeList"
 								<div class="col-md-12">
 									<div class="blog-entry ftco-animate d-md-flex">
 										<a href="single.html" class="img img-2"
-											style="background-image: url(./Resouces/images/image_<%=index+1%>.jpg);"><%=index + 1%></a>
+											style="background-image: url(./Resouces/images/<%= plist.get(index).getP_img_name()%>);"><%=index + 1%></a>
 										<div class="text text-2 pl-md-4">
 											<h3 class="mb-2">
 												<a href="single.html"><%= vo.getPname() %></a>

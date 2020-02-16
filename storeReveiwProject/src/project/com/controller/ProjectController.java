@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import project.com.model.MemberVO;
 import project.com.model.PlaceVO;
+import project.com.model.ReviewVO;
 import project.com.model.ScoreVO;
 import project.com.service.ProjectService;
 /**
@@ -158,6 +159,12 @@ public class ProjectController extends HttpServlet {
 			ScoreVO svo2 = service.selectScoreOne(svo);
 			request.setAttribute("scoreVO", svo2);
 			System.out.println(svo2);
+			
+			ReviewVO rvo = new ReviewVO();
+			rvo.setPname((request.getParameter("p_name")));
+			ArrayList<ReviewVO> rvoList = service.selectReviewList(rvo);
+			request.setAttribute("rvoList", rvoList);
+			
 			RequestDispatcher rd = request.getRequestDispatcher("review.jsp");
 			rd.forward(request, response);
 
