@@ -20,6 +20,8 @@ public class PlaceDAOimpl implements PlaceDAO {
 	private final String PASSWORD = "hi123456";
 
 	private final String SELECT_PLACE_ONE = "select * from place where p_name like ? ";
+	private final String SEARCH_ALL = "select * from score_view where p_name like '%' ||?||'%' ";
+
 	public PlaceDAOimpl() {
 		System.out.println("ScoreDAOimpl()...");
 		// 1.DB Driver 연결
@@ -55,6 +57,73 @@ public class PlaceDAOimpl implements PlaceDAO {
 					list.add(vo2);
 				}
 				
+			}
+
+		} catch (SQLException e) {
+			System.out.println("conn failed...");
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return list;
+	}
+	
+	public ArrayList<ScoreVO> searchAll(String searchWord){
+		ArrayList<ScoreVO> list = new ArrayList<ScoreVO>();
+		System.out.println("searchall()...");
+		
+		ScoreVO vo = new ScoreVO();
+
+		try {
+			// 2. 커넥션
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			System.out.println("conn successed...");
+
+			// 3. SQL 설정
+			pstmt = conn.prepareStatement(SEARCH_ALL);
+			
+			pstmt.setString(1,searchWord);
+			
+			// 4. DB처리 결과반환
+			rs = pstmt.executeQuery();// select
+			
+			System.out.println(rs);
+	
+			while (rs.next()) {
+				
+				vo.setPname(rs.getString("p_name"));
+				vo.setTotal(rs.getInt("s_total"));
+				vo.setTaste(rs.getInt("s_taste"));
+				vo.setPrice(rs.getInt("s_price"));;
+				vo.setDistance(rs.getInt("s_distance"));
+				vo.setCircul(rs.getInt("s_circul"));
+				vo.setCount(rs.getInt("s_count"));;
+				
+				System.out.println();
+				
+				list.add(vo);
 			}
 
 		} catch (SQLException e) {

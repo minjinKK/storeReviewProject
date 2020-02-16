@@ -29,9 +29,9 @@
 									<h2 style="text-align: center">식당 순위(가제)</h2>
 								</div>
 								<div class="col-md-12 py-3">
-									<form action="#" class="search-form">
+									<form action="searchAll.do" class="search-form">
 										<div class="form-group">
-											<span class="icon icon-search"></span> <input type="text"
+											<span class="icon icon-search"></span> <input type="text" name="searchWord"
 												class="form-control"
 												placeholder="Type a keyword and hit enter">
 										</div>

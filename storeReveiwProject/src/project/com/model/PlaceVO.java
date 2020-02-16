@@ -6,10 +6,13 @@ public class PlaceVO {
 	private String p_country;
 	private String p_address;
 	private String p_img_name;
+	private String p_tel;
+	private String p_description;
 	@Override
 	public String toString() {
 		return "PlaceVO [p_name=" + p_name + ", p_num=" + p_num + ", p_country=" + p_country + ", p_address="
-				+ p_address + ", p_img_name=" + p_img_name + "]";
+				+ p_address + ", p_img_name=" + p_img_name + ", p_tel=" + p_tel + ", p_description=" + p_description
+				+ "]";
 	}
 	public String getP_name() {
 		return p_name;
@@ -40,6 +43,18 @@ public class PlaceVO {
 	}
 	public void setP_img_name(String p_img_name) {
 		this.p_img_name = p_img_name;
+	}
+	public String getP_tel() {
+		return p_tel;
+	}
+	public void setP_tel(String p_tel) {
+		this.p_tel = p_tel;
+	}
+	public String getP_description() {
+		return p_description;
+	}
+	public void setP_description(String p_description) {
+		this.p_description = p_description;
 	}
 	
 }

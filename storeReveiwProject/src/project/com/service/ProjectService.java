@@ -38,11 +38,15 @@ public class ProjectService {
 		public ArrayList<ScoreVO> rateDistance(){
 				return sdao.rateDistance();
 			}
-			public ArrayList<ScoreVO> rateCircul(){
+		public ArrayList<ScoreVO> rateCircul(){
 				return sdao.rateCircul();
 			}
-			public ArrayList<PlaceVO> selectPlaceOne(ArrayList<ScoreVO> list) {
-				// TODO Auto-generated method stub
+		public ArrayList<PlaceVO> selectPlaceOne(ArrayList<ScoreVO> list) {
+			
 				return pdao.selectPlaceOne(list);
-			} 
+			}
+		public ArrayList<ScoreVO> searchAll(String searchWord) {
+			
+			return pdao.searchAll(searchWord);
+		} 
 }

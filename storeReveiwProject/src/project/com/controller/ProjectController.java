@@ -19,7 +19,7 @@ import project.com.service.ProjectService;
 /**
  * Servlet implementation class ProjectController
  */
-@WebServlet({"/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do",})
+@WebServlet({"/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do",})
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProjectService service;   
@@ -141,6 +141,19 @@ public class ProjectController extends HttpServlet {
 			}
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateCircul.jsp");
+			rd.forward(request, response);
+		}else if (sPath.equals("/searchAll.do")) {
+			System.out.println("selectAll");
+			String searchWord = request.getParameter("searchWord");
+			ArrayList<ScoreVO> list = service.searchAll(searchWord);
+			System.out.println("list.size():"+list.size());
+			
+			request.setAttribute("list", list);
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			request.setAttribute("placeList", placeList);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
 			rd.forward(request, response);
 		}
 	}
