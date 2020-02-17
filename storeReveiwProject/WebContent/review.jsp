@@ -138,7 +138,7 @@ String session_id = (String)session.getAttribute("memberid");
 								</div>
 								-->
 	
-								<div class="pt-5 mt-5">
+								<div class="about-reviews pt-5 mt-5 col-xs-12">
 									<h3 class="mb-5 font-weight-bold">현재 ${scoreVO.count} 개의 리뷰가 있습니다!</h3>
 									<ul class="comment-list">
 										<c:forEach var="rvo" items="${rvoList}" >
@@ -157,12 +157,11 @@ String session_id = (String)session.getAttribute("memberid");
 												<h3>${rvo.memberid}</h3>
 												<c:set var="star_index" value="${rvo.rtotal}" />
 												<c:forEach var="i" begin="1" end="${rvo.rtotal}" step="1">
-													<p><i class="icon-star mr-2" style="color:#1eafed"></i></p>
+													<i class="icon-star mr-1" style="color:#1eafed"></i>
 												</c:forEach>
 												<c:forEach var="i" begin="${rvo.rtotal+1}" end="5" step="1">
-													<p><i class="icon-star mr-2" style="color:white"></i></p>
+													<i class="icon-star mr-1"></i>
 												</c:forEach>
-												
 												<div class="meta">${rvo.rWdate}</div>
 												<p>${rvo.rtext}</p>
 												<p>

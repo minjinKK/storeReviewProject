@@ -148,7 +148,9 @@ small {
       border-radius: 3px;
       margin: 0 0 10px;
       padding: 17px; } }
-
+.page-alerts{
+	margin-bottom: 0;
+}
 .btn-group2 {
   position: relative;
   padding: 24px;
@@ -180,6 +182,7 @@ small {
     .btn-form {
       width: 100%;
       border-radius: 3px; } }
+     
 /*==================================index_end=================================*/
 /*==================================mainreviw=================================*/
   #nav-tab {
@@ -222,6 +225,15 @@ small {
 	position: relative;
     width: 100%;
     height: 80px;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+	
+
+ }
+ 
+ .about-review {
+	position: relative;
+    width: 100%;
     border-radius: 0;
     box-shadow: 0 0 0;
 	
@@ -308,9 +320,6 @@ small {
     -webkit-transition: height 0.2s;
     -moz-transition: height 0.2s;
     transition: height 0.2s;
-}
-.reviewstar{
-	color: #ff80c0;
 }
 
 

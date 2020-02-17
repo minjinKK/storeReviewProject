@@ -77,7 +77,7 @@
 								<div class="col-md-12 py-1">
 									<div class="comment-form-wrap pt-5">
 										<h3 class="mb-5">평가 쓰기</h3>
-										<form action="insertReview.do" class="p-3 p-md-5 bg-light">
+										<form action="insertReview.do" class="p-3 p-md-5 bg-light" id="rates">
 											<input name = "p_name" type="hidden" value="<%=p_name %>" >
 											<input name="memberid" type="text" value="<%=session_id%>"readonly> 
 											<input id="r_taste" name="rating_taste"type="hidden" > 
@@ -87,7 +87,7 @@
 											<input id="r_total" name="rating_total" type="hidden">
 											<div class="form-group">
 												<textarea name="r_text" id="message" cols="30" rows="10"
-													class="form-control"></textarea>
+													class="form-control">너무 맛있는 우리회사 맛집!</textarea>
 											</div>
 
 
@@ -122,29 +122,36 @@
 	</div>
 	<jsp:include page="javaScript.jsp"></jsp:include>
 	<script src="./Resouces/js/progressbar.js"></script>
-	<script src="./Resouces/js/reviewstar2.js"></script>
-	<script type="text/javascript">
-		$('#star_taste').on('starrr:change', function(e, value) {
-			// alert(value);
-			$('#r_taste').val(value);
-			console.log(value);
-		});
-		$('#star_price').on('starrr:change', function(e, value) {
-			$('#r_price').val(value);
-// 			alert(value);
-		});
-		$('#star_circul').on('starrr:change', function(e, value) {
-			$('#r_circul').val(value);
-// 			alert(value);
-		});
-		$('#star_distance').on('starrr:change', function(e, value) {
-			$('#r_distance').val(value);
-// 			alert(value);
-		});
-		$('#star_total').on('starrr:change', function(e, value) {
-			$('#r_total').val(value);
-// 			alert(value);
-		});
+	<script src="./Resouces/js/reviewstar3.js"></script>
+	<script>
+	$(document).ready(function() {
+	    $('#rates').submit(function() {
+	        if ($('#r_taste').val() == 0) {
+	            alert('맛의 점수를 매겨주세요!');
+	            return false;
+	        }
+	        else if ($('#r_price').val() == 0) {
+	            alert('가성비의 점수를 매겨주세요!');
+	            return false;
+	        }
+	        else if ($('#r_circul').val() == 0) {
+	            alert('회전율의 점수를 매겨주세요!');
+	            return false;
+	        }
+	        else  if ($('#r_distance').val() == 0) {
+	            alert('거리의 점수를 매겨주세요!');
+	            return false;
+	        }
+	        else  if ($('#r_total').val() == 0) {
+	            alert('총 점수를 매겨주세요!');
+	            return false;
+	        }
+	        else  if ($('#message').val() == '') {
+	            alert('코멘트를 남겨주세요!');
+	            return false;
+	        }
+	    }); // end submit()
+	}); // end ready()
 	</script>
 </body>
 </html>
