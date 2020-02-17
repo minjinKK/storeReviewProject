@@ -19,7 +19,7 @@ import project.com.service.ProjectService;
  * Servlet implementation class ProjectController
  */
 
-@WebServlet({"/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
+@WebServlet({"/signUpOK.do","/signUp.do","/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
 
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -230,6 +230,37 @@ public class ProjectController extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("review.do");
 
+			rd.forward(request, response);
+		}else if (sPath.equals("/signUp.do")) {
+			System.out.println("signup");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("signUp.jsp");
+
+			rd.forward(request, response);
+		}else if (sPath.equals("/signUpOK.do")) {
+			System.out.println("signupok");
+
+			MemberVO vo = new MemberVO();
+			String member_id = request.getParameter("memberid");
+			String member_pw = request.getParameter("memberpw");
+			String member_email = request.getParameter("memberemail");
+			
+			System.out.println(member_id+"/"+member_pw);
+			
+			vo.setMemberid(member_id);
+			vo.setMemberpw(member_pw);
+			vo.setMemberemail(member_email);
+		
+			int result = service.insert(vo);
+			System.out.println("insert member: "+result);
+			RequestDispatcher rd = null;
+			
+			if (result !=0) {
+				rd = request.getRequestDispatcher("index.do");
+			}
+			else {
+				rd = request.getRequestDispatcher("signUp.do");
+			}
 			rd.forward(request, response);
 		}
 		

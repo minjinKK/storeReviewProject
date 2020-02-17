@@ -34,7 +34,7 @@
                                     </div>
                                 </form>
                                 <div class="slider-link">
-                                    <a href="#">Browse Popular</a><span>or</span> <a href="#">Recently Added</a>
+                                    <a href="signUp.do">회원가입</a>
                                 </div>
                             </div>
                         </div>

@@ -71,5 +71,8 @@ public class ProjectService {
 		public int insertReview(ReviewVO vo) {
 			return rdao.insertReview(vo);
 		}
+		public int insert(MemberVO vo) {
+			return mdao.insert(vo);
+		}
 
 }
