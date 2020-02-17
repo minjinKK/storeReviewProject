@@ -118,6 +118,7 @@ public class ReviewDAOimpl implements ReviewDAO {
 				rvo2.setRprice(rs.getInt("r_price"));
 				rvo2.setRtext(rs.getString("r_text"));
 				rvo2.setRtotal(rs.getInt("r_total"));
+				System.out.println(rvo2);
 				SimpleDateFormat wFormat = new SimpleDateFormat ( "MMMMM dd, yyyy 'AT' hh:mm a");
 				Date rdate = rs.getTimestamp("r_wdate");
 				String wDate=wFormat.format(rdate.getTime());

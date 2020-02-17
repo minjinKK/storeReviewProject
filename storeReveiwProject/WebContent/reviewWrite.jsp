@@ -20,7 +20,7 @@
 					<div class="row d-flex">
 						<div class="col-lg-12 px-md-5 py-5">
 							<div class="col-md-12 py-5">
-								<h2 style="text-align: center">식당 순위(가제)</h2>
+								<a href="rateTotal.do"><h2 style="text-align: center">식당 순위(가제)</h2></a>
 							</div>
 
 							<!--
