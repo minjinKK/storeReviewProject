@@ -21,9 +21,7 @@ public class ReviewVO {
 	public void setrWdate(String rWdate) {
 		this.rWdate = rWdate;
 	}
-	public void setRtaste(int rtaste) {
-		this.rtaste = rtaste;
-	}
+	
 	public String getMemberid() {
 		return memberid;
 	}
@@ -57,8 +55,8 @@ public class ReviewVO {
 	public int getRtaste() {
 		return rtaste;
 	}
-	public void setRtaste(int r_taste) {
-		this.rtaste = r_taste;
+	public void setRtaste(int rtaste) {
+		this.rtaste = rtaste;
 	}
 	public int getRprice() {
 		return rprice;

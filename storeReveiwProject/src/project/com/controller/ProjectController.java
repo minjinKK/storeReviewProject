@@ -19,7 +19,7 @@ import project.com.service.ProjectService;
  * Servlet implementation class ProjectController
  */
 
-@WebServlet({"/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
+@WebServlet({"/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
 
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -184,30 +184,66 @@ public class ProjectController extends HttpServlet {
 			rd.forward(request, response);
 		}else if (sPath.equals("/reviewWrite.do")) {
 			System.out.println("reviewWrite");
+			
+			//String memberid = request.getParameter("memberid");
+			
+			String pname=request.getParameter("p_name");
+			
+			request.setAttribute("p_name", pname);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("reviewWrite.jsp");
+
+			rd.forward(request, response);
+		}else if (sPath.equals("/insertReview.do")) {
+			System.out.println("insertreview");
+			
+			System.out.println(request.getParameter("rating_taste"));
+			System.out.println(request.getParameter("rating_price"));
+			System.out.println(request.getParameter("rating_circul"));
+			System.out.println(request.getParameter("rating_distance"));
+			System.out.println(request.getParameter("r_text"));
+			
+			
 			ReviewVO rvo = new ReviewVO();
 			PlaceVO pvo = new PlaceVO();
 			PlaceVO pvo2 = new PlaceVO();
 			
 			String memberid = request.getParameter("memberid");
 			
+			
+			System.out.println(memberid);
+			
+			
+			System.out.println(request.getParameter("rating_taste"));
 			String pname=request.getParameter("p_name");
-
+			System.out.println(pname);
+			int rtaste = Integer.parseInt(request.getParameter("rating_taste"));
+			int rprice = Integer.parseInt(request.getParameter("rating_price"));
+			int rcircul = Integer.parseInt(request.getParameter("rating_circul"));
+			int rdistance = Integer.parseInt(request.getParameter("rating_distance"));
+			int rtotal = Integer.parseInt(request.getParameter("rating_total"));
+			String rtext = request.getParameter("r_text");
+			System.out.println(rtext);
 			
-			
-			pvo.setP_name("pname");
+			pvo.setP_name(pname);
 			pvo2 = service.selectPlaceOne(pvo);
 			
 			rvo.setMemberid(memberid);
 			rvo.setPname(pname);
 			rvo.setPnum(pvo2.getP_num());
+			rvo.setRtotal(rtotal);
+			rvo.setRtaste(rtaste);
+			rvo.setRprice(rprice);
+			rvo.setRdistance(rdistance);
+			rvo.setRcircul(rcircul);
+			rvo.setRtext(rtext);
 			
+			System.out.println(rvo);
+		
+			int result = service.insertReview(rvo);
+			//request.setAttribute("p_name", pname);
 			
-			
-			
-			int result = service.insertReview();
-			request.setAttribute("p_name", pname);
-			
-			RequestDispatcher rd = request.getRequestDispatcher("reviewWrite.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("review.do");
 
 			rd.forward(request, response);
 		}

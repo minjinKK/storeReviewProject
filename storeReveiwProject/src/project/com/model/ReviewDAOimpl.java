@@ -23,7 +23,7 @@ public class ReviewDAOimpl implements ReviewDAO {
 
 	private final String INSERT_REVIEW = "insert into review (r_num,member_id,p_num,p_name,r_text,r_taste,r_price,r_distance,r_circul,r_total)"+
 			"values(seq_review.nextval,?,?,?,?,?,?,?,?,?)";
-	private final String SELECT_REVIEW_LIST = "SELECT * FROM REVIEW WHERE P_NAME LIKE ? order by r_wdate";
+	private final String SELECT_REVIEW_LIST = "SELECT * FROM REVIEW WHERE P_NAME = ? order by r_wdate desc";
 	public ReviewDAOimpl() {
 		System.out.println("ReviewDAOimpl()...");
 		// 1.DB Driver 연결
@@ -47,7 +47,17 @@ public class ReviewDAOimpl implements ReviewDAO {
 
 			// 3. SQL 설정
 			pstmt = conn.prepareStatement(INSERT_REVIEW);
-			pstmt.setInt();
+			pstmt.setString(1,vo.getMemberid());
+			pstmt.setInt(2, vo.getPnum());
+			pstmt.setString(3, vo.getPname());
+			pstmt.setString(4, vo.getRtext());
+			pstmt.setInt(5, vo.getRtaste());
+			pstmt.setInt(6, vo.getRprice());
+			pstmt.setInt(7, vo.getRdistance());
+			pstmt.setInt(8, vo.getRcircul());
+			pstmt.setInt(9, vo.getRtotal());
+			
+			rs = pstmt.executeQuery();
 				
 			}
 
@@ -57,6 +67,7 @@ public class ReviewDAOimpl implements ReviewDAO {
 		} finally {
 			if (rs != null) {
 				try {
+					flag = 1;
 					rs.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -92,14 +103,15 @@ public class ReviewDAOimpl implements ReviewDAO {
 			System.out.println("conn successed...");
 			// 3. SQL 설정
 			pstmt = conn.prepareStatement(SELECT_REVIEW_LIST);
+			System.out.println(rvo.getPname());
 			pstmt.setString(1, rvo.getPname());
 			rs = pstmt.executeQuery();// select
 			while (rs.next()) {
 				ReviewVO rvo2 = new ReviewVO();
-				rvo2.setMemberid(rs.getString("user_id"));
+				rvo2.setMemberid(rs.getString("member_id"));
 				rvo2.setPname(rs.getString("p_name"));
 				rvo2.setPnum(rs.getInt("p_num"));
-				rvo2.setR_aste(rs.getInt("r_taste"));
+				rvo2.setRtaste(rs.getInt("r_taste"));
 				rvo2.setRcircul(rs.getInt("r_circul"));
 				rvo2.setRdistance(rs.getInt("r_distance"));
 				rvo2.setRnum(rs.getInt("r_num"));

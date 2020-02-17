@@ -104,6 +104,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 
 			// 3. SQL 설정
 			pstmt = conn.prepareStatement(SELECT_PLACE_ONE);
+			System.out.println(vo.getP_name());
 			pstmt.setString(1, vo.getP_name());
 			rs = pstmt.executeQuery();// select
 			if(!rs.next()) System.out.println("selectplaceone____fail");

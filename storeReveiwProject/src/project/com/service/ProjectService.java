@@ -68,5 +68,8 @@ public class ProjectService {
 			// TODO Auto-generated method stub
 			return rdao.selectReviewList(rvo);
 		} 
+		public int insertReview(ReviewVO vo) {
+			return rdao.insertReview(vo);
+		}
 
 }
