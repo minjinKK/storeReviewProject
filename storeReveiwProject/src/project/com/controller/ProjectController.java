@@ -41,12 +41,16 @@ public class ProjectController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String sPath = request.getServletPath();
 		System.out.println("doget..."+sPath);
+		String memberid;
+		String memberpw;
+		
+		
 		if (sPath.equals("/index.do")) {
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 		}else if (sPath.equals("/login.do")) {
-			String memberid = request.getParameter("memberid");
-			String memberpw = request.getParameter("memberpw");
+			memberid = request.getParameter("memberid");
+			memberpw = request.getParameter("memberpw");
 			
 			MemberVO vo = new MemberVO();
 			vo.setMemberid(memberid);
@@ -55,8 +59,7 @@ public class ProjectController extends HttpServlet {
 			
 			if ( vo2.getMemberid() != null) {
 			
-			request.setAttribute("memberid", vo2.getMemberid());
-			current = vo.getMemberid();
+			request.setAttribute("memberid", memberid);
 				
 			System.out.println("login result success");
 			
@@ -109,10 +112,6 @@ public class ProjectController extends HttpServlet {
 			placeList = service.selectPlaceOne(list);
 			request.setAttribute("placeList", placeList);
 			
-			for(ScoreVO vo:list) {
-				System.out.println(vo.toString());
-			}
-			
 			RequestDispatcher rd = request.getRequestDispatcher("ratePrice.jsp");
 			rd.forward(request, response);
 		}else if (sPath.equals("/rateDistance.do")) {
@@ -124,9 +123,6 @@ public class ProjectController extends HttpServlet {
 			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
 			placeList = service.selectPlaceOne(list);
 			request.setAttribute("placeList", placeList);
-			for(ScoreVO vo:list) {
-				System.out.println(vo.toString());
-			}
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateDistance.jsp");
 			rd.forward(request, response);
@@ -139,9 +135,7 @@ public class ProjectController extends HttpServlet {
 			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
 			placeList = service.selectPlaceOne(list);
 			request.setAttribute("placeList", placeList);
-			for(ScoreVO vo:list) {
-				System.out.println(vo.toString());
-			}
+			
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateCircul.jsp");
 			rd.forward(request, response);
@@ -196,19 +190,13 @@ public class ProjectController extends HttpServlet {
 			rd.forward(request, response);
 		}else if (sPath.equals("/insertReview.do")) {
 			System.out.println("insertreview");
-			
-			System.out.println(request.getParameter("rating_taste"));
-			System.out.println(request.getParameter("rating_price"));
-			System.out.println(request.getParameter("rating_circul"));
-			System.out.println(request.getParameter("rating_distance"));
-			System.out.println(request.getParameter("r_text"));
-			
+
 			
 			ReviewVO rvo = new ReviewVO();
 			PlaceVO pvo = new PlaceVO();
 			PlaceVO pvo2 = new PlaceVO();
 			
-			String memberid = request.getParameter("memberid");
+			memberid = request.getParameter("memberid");
 			
 			
 			System.out.println(memberid);
@@ -223,7 +211,6 @@ public class ProjectController extends HttpServlet {
 			int rdistance = Integer.parseInt(request.getParameter("rating_distance"));
 			int rtotal = Integer.parseInt(request.getParameter("rating_total"));
 			String rtext = request.getParameter("r_text");
-			System.out.println(rtext);
 			
 			pvo.setP_name(pname);
 			pvo2 = service.selectPlaceOne(pvo);
@@ -237,9 +224,7 @@ public class ProjectController extends HttpServlet {
 			rvo.setRdistance(rdistance);
 			rvo.setRcircul(rcircul);
 			rvo.setRtext(rtext);
-			
-			System.out.println(rvo);
-		
+
 			int result = service.insertReview(rvo);
 			//request.setAttribute("p_name", pname);
 			

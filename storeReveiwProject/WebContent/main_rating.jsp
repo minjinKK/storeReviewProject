@@ -6,16 +6,17 @@
 <%
    ArrayList<ScoreVO> slist = (ArrayList<ScoreVO>) request.getAttribute("list");
 	ArrayList<PlaceVO> plist = (ArrayList<PlaceVO>) request.getAttribute("placeList");
-	String memberid = request.getParameter("memberid");
 	
-	session.setAttribute("memberid", memberid);
+	if((String)request.getParameter("memberid") !=null){
+	String memberid = request.getParameter("memberid");
+	session.setAttribute("memberid", memberid);}
 	String session_id = (String)session.getAttribute("memberid");
 %>
 	
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>식당리뷰</title>
+<title>식당리뷰<%=session_id %></title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">

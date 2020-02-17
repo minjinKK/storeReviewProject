@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+
+
 	String session_id = (String) session.getAttribute("memberid");
 	String p_name = (String) request.getAttribute("p_name");
 %>
 <html lang="en">
 <head>
-<title>리뷰작성</title>
+<title>리뷰작성<%=session_id %></title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
