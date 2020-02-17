@@ -199,7 +199,7 @@ small {
  	 }
   }
 /*==================================mainreviw_end=================================*/
-/*==================================reviw_end=================================*/
+/*==================================reviw================================*/
 
 .awe-section {
     position: relative;
@@ -308,6 +308,9 @@ small {
     -webkit-transition: height 0.2s;
     -moz-transition: height 0.2s;
     transition: height 0.2s;
+}
+.reviewstar{
+	color: #ff80c0;
 }
 
 

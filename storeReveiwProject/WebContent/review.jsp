@@ -155,6 +155,14 @@ String session_id = (String)session.getAttribute("memberid");
 											</div>
 											<div class="comment-body">
 												<h3>${rvo.memberid}</h3>
+												<c:set var="star_index" value="${rvo.rtotal}" />
+												<c:forEach var="i" begin="1" end="${rvo.rtotal}" step="1">
+													<p><i class="icon-star mr-2" style="color:#1eafed"></i></p>
+												</c:forEach>
+												<c:forEach var="i" begin="${rvo.rtotal+1}" end="5" step="1">
+													<p><i class="icon-star mr-2" style="color:white"></i></p>
+												</c:forEach>
+												
 												<div class="meta">${rvo.rWdate}</div>
 												<p>${rvo.rtext}</p>
 												<p>
