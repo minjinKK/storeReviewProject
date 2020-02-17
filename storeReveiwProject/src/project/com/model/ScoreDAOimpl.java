@@ -124,7 +124,7 @@ public class ScoreDAOimpl implements ScoreDAO {
 				vo.setCircul(rs.getFloat("s_circul"));
 				vo.setCount(rs.getInt("s_count"));
 				list.add(vo);
-				System.out.println(list);
+
 			}
 
 		} catch (SQLException e) {

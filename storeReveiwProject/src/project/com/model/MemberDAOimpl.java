@@ -21,7 +21,7 @@ public class MemberDAOimpl implements MemberDAO {
 	private final String USER = "project";
 	private final String PASSWORD = "hi123456";
 	
-	private final String SQL_INSERT = "insert into member values(?,?)";
+	private final String SQL_INSERT = "insert into member values(?,?,?)";
 	
 	private final String SQL_SELECT_ONE = "select * from member where member_id=? and member_pw=?";
 
@@ -40,8 +40,58 @@ public class MemberDAOimpl implements MemberDAO {
 	
 	@Override
 	public int insert(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int flag = 0;
+		System.out.println("insertmember");
+		
+		try {
+			// 2. 커넥션
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			System.out.println("conn successed...");
+
+			// 3. SQL 설정
+			pstmt = conn.prepareStatement(SQL_INSERT);
+
+			pstmt.setString(1,vo.getMemberid());
+			pstmt.setString(2,vo.getMemberpw());
+			pstmt.setString(3, vo.getMemberemail());
+			// 4. DB처리 결과반환
+			flag = pstmt.executeUpdate();// select
+			
+			System.out.println("insert:"+flag);
+	
+			
+
+		} catch (SQLException e) {
+			System.out.println("conn failed...");
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		
+		
+		return flag;
 	}
 
 	@Override
