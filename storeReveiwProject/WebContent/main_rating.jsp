@@ -67,16 +67,16 @@
 								<nav class="navbar navbar-expand-lg navbar-left">
 									<div class="collapse navbar-collapse" id="navbarNavDropdown">
 										<ul class="navbar-nav">
-											<li class="nav-item dropdown"><a class="nav-link" href="#"
-												id="navbarDropdownMenuLink" data-toggle="dropdown"
-												aria-haspopup="true" aria-expanded="false"> Explore <span
-													class="icon-arrow-down"></span>
+											<li class="nav-item dropdown">
+											<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+												aria-haspopup="true" aria-expanded="false"> 카테고리
+												 <span class="icon-arrow-down"></span>
 											</a>
 												<div class="dropdown-menu"
 													aria-labelledby="navbarDropdownMenuLink">
-													<a class="dropdown-item" href="#">Action</a> <a
-														class="dropdown-item" href="#">Another action</a> <a
-														class="dropdown-item" href="#">Something else here</a>
+													<a class="dropdown-item" value="한식">한식</a> 
+													<a class="dropdown-item" value="양식">양식</a> 
+													<a class="dropdown-item" value="중식">중식</a>
 												</div>
 											</li>
 										</ul>
@@ -84,14 +84,22 @@
 								</nav>
 							</div>
 								<!--  -->
+								<div class="col-md-12" id="rate-wrap">
 								<%
 									int index=0;
-									for (ScoreVO vo : slist) { 	
+									int rank=0;
+									String str = "한식";
+									for (ScoreVO vo : slist) {
+										if(!plist.get(index).getP_country().equals("한식")) {
+											index++;
+											continue;
+										}
+										++rank;
 									%>
 								<div class="col-md-12">
 									<div class="blog-entry ftco-animate d-md-flex">
 										<a href="review.do?p_name=<%= vo.getPname() %>" class="img img-2"
-											style="background-image: url(./Resouces/images/<%= plist.get(index).getP_img_name()%>);"><%=index + 1%></a>
+											style="background-image: url(./Resouces/images/<%= plist.get(index).getP_img_name()%>);"><%=rank%></a>
 										<div class="text text-2 pl-md-4">
 											<h3 class="mb-2">
 												<a href="review.do?p_name=<%= vo.getPname() %>"><%= vo.getPname() %></a>
@@ -152,5 +160,16 @@
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 	<jsp:include page="javaScript.jsp"></jsp:include>
+	<script>
+	$(document).ready(function() {
+		$('.dropdown-item').on('click', function() {
+		    // 버튼에 선택된 항목 텍스트 넣기 
+		    //$('#mystatus').text($(this).text());
+		    // 선택된 항목 값(value) 얻기
+		    alert($(this).attr('value'));
+		    $("#rate-wrap").load(window.location.href + "#rate-wrap");
+		});
+	}); // end ready()
+	</script>
 </body>
 </html>

@@ -33,7 +33,7 @@
                         </div>
                         <div class="row d-flex justify-content-center" >
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4" action = "login.do">
+                                <form class="form-wrap mt-4" action = "login.do" method="post">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="text" name = "memberid" placeholder="ID" class="btn-group1">
                                         <input type="text" name = "memberpw" placeholder="PASSWORD" class="btn-group2">
