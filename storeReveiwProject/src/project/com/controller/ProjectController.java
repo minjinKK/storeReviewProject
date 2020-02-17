@@ -68,6 +68,7 @@ public class ProjectController extends HttpServlet {
 			rd.forward(request, response);
 			}
 			else {
+				request.setAttribute("loginResult", "fail");
 				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			}
