@@ -121,7 +121,7 @@ small {
 /*여기서부터 가져온 css*/
 /*==================================index=================================*/
 .slider {
-  background: url(../images/slider.jpg) no-repeat;
+  background: url(../images/index_bg3.jpg) no-repeat;
   background-size: cover;
   min-height: 800px; }
   @media (max-width: 992px) {
