@@ -2,7 +2,7 @@
  	duration: 800,
  	easing: 'slide'
  });
-
+ var contentWayPoint;
 (function($) {
 
 	"use strict";
@@ -138,7 +138,7 @@
 
 	
 
-	var contentWayPoint = function() {
+	contentWayPoint = function() {
 		var i = 0;
 		$('.ftco-animate').waypoint( function( direction ) {
 

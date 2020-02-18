@@ -2,6 +2,8 @@ package project.com.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,16 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import project.com.model.MemberVO;
 import project.com.model.PlaceVO;
 import project.com.model.ReviewVO;
 import project.com.model.ScoreVO;
+import project.com.model.TestVO;
 import project.com.service.ProjectService;
 /**
  * Servlet implementation class ProjectController
  */
 
-@WebServlet({"/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
+@WebServlet({"/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/json_rateTotal.do","/main_rating.do","/rateTaste.do","/review.do"})
 
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -43,8 +49,11 @@ public class ProjectController extends HttpServlet {
 		System.out.println("doget..."+sPath);
 		String memberid;
 		String memberpw;
-		
-		
+		//json
+		response.setContentType("application/json");
+		response.setHeader("Cache-Control", "nocache");
+		response.setCharacterEncoding("utf-8");
+		//
 		if (sPath.equals("/index.do")) {
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
@@ -80,16 +89,31 @@ public class ProjectController extends HttpServlet {
 			
 			ArrayList<ScoreVO> list = service.rateTotal();
 			System.out.println("list.size():"+list.size());
-			
 			request.setAttribute("list", list);
 			
 			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
 			placeList = service.selectPlaceOne(list);
 			request.setAttribute("placeList", placeList);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("main_rating2.jsp");
 			rd.forward(request, response);
-		}else if (sPath.equals("/rateTaste.do")) {
+		}else if (sPath.equals("/json_rateTotal.do")) {
+			
+			ArrayList<ScoreVO> list = service.rateTotal();
+			System.out.println("list.size():"+list.size());
+			request.setAttribute("list", list);
+			
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			request.setAttribute("placeList", placeList);
+			
+			JSONArray arr = new JSONArray();
+			arr.put(list);
+			arr.put(placeList);
+			response.getWriter().append(arr.toString());
+		}
+		
+		else if (sPath.equals("/rateTaste.do")) {
 			System.out.println("ratetaste");
 			ArrayList<ScoreVO> list = service.rateTaste();
 			System.out.println("list.size():"+list.size());
