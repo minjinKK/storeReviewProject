@@ -26,7 +26,7 @@ import project.com.service.ProjectService;
  */
 
 
-@WebServlet({"/signUpOK.do","/signUp.do","/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do","/json_rateTotal.do"})
+@WebServlet({"/signUpOK.do","/signUp.do","/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do","/json_rateTotal.do","/json_rateCircul.do","/json_ratePrice.do","/json_rateDistance.do","/json_rateTaste.do"})
 
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -99,14 +99,9 @@ public class ProjectController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("main_rating2.jsp");
 			rd.forward(request, response);
 		}else if (sPath.equals("/json_rateTotal.do")) {
-			
 			ArrayList<ScoreVO> list = service.rateTotal();
-			System.out.println("list.size():"+list.size());
-			request.setAttribute("list", list);
-			
 			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
 			placeList = service.selectPlaceOne(list);
-			request.setAttribute("placeList", placeList);
 			
 			JSONArray arr = new JSONArray();
 			arr.put(list);
@@ -127,6 +122,16 @@ public class ProjectController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("rateTaste.jsp");
 			rd.forward(request, response);
 			
+		}else if (sPath.equals("/json_rateTaste.do")) {
+			ArrayList<ScoreVO> list = service.rateTaste();
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			
+			JSONArray arr = new JSONArray();
+			arr.put(list);
+			arr.put(placeList);
+			response.getWriter().append(arr.toString());
+
 		}else if (sPath.equals("/ratePrice.do")) {
 			System.out.println("rateprice");
 			ArrayList<ScoreVO> list = service.ratePrice();
@@ -140,6 +145,16 @@ public class ProjectController extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("ratePrice.jsp");
 			rd.forward(request, response);
+		}else if (sPath.equals("/json_ratePrice.do")) {
+			ArrayList<ScoreVO> list = service.ratePrice();
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			
+			JSONArray arr = new JSONArray();
+			arr.put(list);
+			arr.put(placeList);
+			response.getWriter().append(arr.toString());
+
 		}else if (sPath.equals("/rateDistance.do")) {
 			System.out.println("ratedistance");
 			ArrayList<ScoreVO> list = service.rateDistance();
@@ -152,7 +167,18 @@ public class ProjectController extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateDistance.jsp");
 			rd.forward(request, response);
-		}else if (sPath.equals("/rateCircul.do")) {
+		}else if (sPath.equals("/json_rateDistance.do")) {
+			ArrayList<ScoreVO> list = service.rateDistance();
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			
+			JSONArray arr = new JSONArray();
+			arr.put(list);
+			arr.put(placeList);
+			response.getWriter().append(arr.toString());
+
+		}
+		else if (sPath.equals("/rateCircul.do")) {
 			System.out.println("ratecircul");
 			ArrayList<ScoreVO> list = service.rateCircul();
 			System.out.println("list.size():"+list.size());
@@ -165,6 +191,16 @@ public class ProjectController extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("rateCircul.jsp");
 			rd.forward(request, response);
+
+		}else if (sPath.equals("/json_rateCircul.do")) {
+			ArrayList<ScoreVO> list = service.rateCircul();
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			
+			JSONArray arr = new JSONArray();
+			arr.put(list);
+			arr.put(placeList);
+			response.getWriter().append(arr.toString());
 
 		}else if (sPath.equals("/review.do")) {
 			//System.out.println("넘어온 이름은??"+request.getParameter("p_name"));
@@ -276,7 +312,6 @@ public class ProjectController extends HttpServlet {
 			vo.setMemberid(member_id);
 			vo.setMemberpw(member_pw);
 			vo.setMemberemail(member_email);
-		
 			int result = service.insert(vo);
 			System.out.println("insert member: "+result);
 			RequestDispatcher rd = null;
@@ -285,12 +320,11 @@ public class ProjectController extends HttpServlet {
 				rd = request.getRequestDispatcher("index.do");
 			}
 			else {
+				request.setAttribute("signUpResult", "fail");
 				rd = request.getRequestDispatcher("signUp.do");
 			}
 			rd.forward(request, response);
 		}
-		
-		
 	}
 	
 

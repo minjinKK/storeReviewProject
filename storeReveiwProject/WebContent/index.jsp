@@ -26,8 +26,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="slider-content_wrap">
-                                    <h1>Discover great places in New york</h1>
-                                    <h5>Let's uncover the best places to eat, drink, and shop nearest to you.</h5>
+                                    <h1>IDT 주변의 가장 맛있는 한식집은?</h1>
+                                    <p style="font-size:20px">지금 바로 식당순위(가제)를 통해 확인해보세요!</p>
                                 </div>
                             </div>
                         </div>
@@ -55,10 +55,11 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
   <jsp:include page="javaScript.jsp"></jsp:include>
-  <script type="text/javascript">
+  	<script type="text/javascript">
  	$( document ).ready(function() {
  		var value = $("#res").val();
- 		if(value != null&&value == "fail") $("#alert-form").show();
+ 		if(value == null) $("#alert-form").hide();
+ 		else if(value == "fail") $("#alert-form").show();
 	});
 	</script>
   
