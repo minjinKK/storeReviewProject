@@ -4,8 +4,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import ="project.com.model.ScoreVO" %>
 <%
-   ArrayList<ScoreVO> slist = (ArrayList<ScoreVO>) request.getAttribute("list");
-	ArrayList<PlaceVO> plist = (ArrayList<PlaceVO>) request.getAttribute("placeList");
+//    ArrayList<ScoreVO> slist = (ArrayList<ScoreVO>) request.getAttribute("list");
+// 	ArrayList<PlaceVO> plist = (ArrayList<PlaceVO>) request.getAttribute("placeList");
 	
 	if((String)request.getParameter("memberid") !=null){
 	String memberid = request.getParameter("memberid");
@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>식당리뷰<%=session_id %></title>
+<title>식당리뷰_2<%=session_id %></title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -74,9 +74,13 @@
 											</a>
 												<div class="dropdown-menu"
 													aria-labelledby="navbarDropdownMenuLink">
+													<a class="dropdown-item" value="전체">전체</a> 
 													<a class="dropdown-item" value="한식">한식</a> 
 													<a class="dropdown-item" value="양식">양식</a> 
 													<a class="dropdown-item" value="중식">중식</a>
+													<a class="dropdown-item" value="인도식">인도식</a>
+													<a class="dropdown-item" value="태국식">태국식</a>
+													<a class="dropdown-item" value="카페">카페</a>
 												</div>
 											</li>
 										</ul>
@@ -85,7 +89,8 @@
 							</div>
 								<!--  -->
 								<div class="col-md-12" id="rate-wrap">
-								<%
+								
+								<%-- <%
 									int index=0;
 									int rank=0;
 									String str = "한식";
@@ -120,7 +125,7 @@
 								</div>
 								<%
 								index++;}
-								%>
+								%> --%>
 							</div>
 							<!-- END-->
 							<!--  
@@ -162,13 +167,58 @@
 	<jsp:include page="javaScript.jsp"></jsp:include>
 	<script>
 	$(document).ready(function() {
+		var category = '';
+		loadRate(category);
 		$('.dropdown-item').on('click', function() {
 		    // 버튼에 선택된 항목 텍스트 넣기 
 		    //$('#mystatus').text($(this).text());
 		    // 선택된 항목 값(value) 얻기
-		    alert($(this).attr('value'));
-		    $("#rate-wrap").load(window.location.href + "#rate-wrap");
+		    //alert($(this).attr('value'));
+		    //$("#rate-wrap").load(window.location.href + "#rate-wrap");
+		    category = ($(this).attr('value')=='전체') ? "": $(this).attr('value');
+			loadRate(category);
 		});
+		
+		function loadRate(category) {
+			console.log("category....."+category);
+			$.get("json_rateTotal.do", function(data, status) {
+				console.log(data);
+				/* let str = "";
+				for ( var i in data[0]) {
+					str += data[0][i].pname + "," + data[0][i].total + " ";
+				}
+				for ( var i in data[1]) {
+					str += data[1][i].p_name + "," + data[1][i].p_address + " ";
+				}
+				$("#rate-wrap").html(str); */
+				/////////////////////////////////////////////////////////////////////
+				let str = "";
+				let rank = 1;
+				for(var i in data[0]){
+					if( category != '' && data[1][i].p_country != category) {
+						continue;
+					}
+					str += "<div class='col-md-12'>";
+					str += "<div class='blog-entry ftco-animate  d-md-flex'>";
+					str += "<a href='review.do?p_name="+data[0][i].pname+"'";
+					str += "class='img img-2' style='background-image: url(./Resouces/images/"+data[1][i].p_img_name+");'>"+rank+"</a>";
+					str +="<div class='text text-2 pl-md-4'><h3 class='mb-2'><a href='review.do?p_name="+data[0][i].pname+"'>"+data[0][i].pname+"</a>";
+					str +="</h3><div class='meta-wrap'><p class='meta'><div id='meta-detail'><span style='margin-right: 10px'>총점<i class='icon-star mr-2'></i>"+data[0][i].total+"</span>"; 
+					str += "<span style='margin-right: 10px'><i class='icon-folder-o mr-2'></i>"+data[1][i].p_country+"</span><span style='margin-right: 10px'>";
+					str += "<i class='icon-comment2 mr-2'></i>"+data[0][i].count+" Comment</span></div></p></div>";
+					str += "<p class='mb-4'>정말 맛있는 "+data[1][i].p_country+" 집"+ data[0][i].pname+"의 주소는 ?    ["+data[1][i].p_address+"]</p></div>";
+					str += "</div>";
+					str += "</div>";
+					rank++;
+					
+				}
+				
+				$("#rate-wrap").html(str);
+				contentWayPoint();//main.js에있는 전역함수!
+			}); //endget
+		}
+	
+	
 	}); // end ready()
 	</script>
 </body>
