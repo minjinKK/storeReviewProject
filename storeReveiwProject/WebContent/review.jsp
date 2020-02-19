@@ -7,7 +7,7 @@ String session_id = (String)session.getAttribute("memberid");
 %>
 <html lang="en">
 <head>
-<title>상세리뷰보기<%=session_id %></title>
+<title>IDTasty Road</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +16,7 @@ String session_id = (String)session.getAttribute("memberid");
 
 </head>
 <body>
+<h6 style="text-align: right"><%=session_id %>님 환영합니다.</h6>
 	<div id="colorlib-page">
 		<div id="colorlib-main">
 			<section class="ftco-section ftco-no-pt ftco-no-pb">
