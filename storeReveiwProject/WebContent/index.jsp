@@ -36,7 +36,7 @@
                                 <form class="form-wrap mt-4" action = "login.do" method="post">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="text" name = "memberid" placeholder="ID" class="btn-group1">
-                                        <input type="text" name = "memberpw" placeholder="PASSWORD" class="btn-group2">
+                                        <input type="password" name = "memberpw" placeholder="PASSWORD" class="btn-group2">
                                         <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>로그인<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
