@@ -23,7 +23,7 @@ String session_id = (String)session.getAttribute("memberid");
 					<div class="row d-flex">
 						<div class="col-lg-12 px-md-5 py-5">
 							<div class="col-md-12 py-5">
-								<a href="rateTotal.do"><h2 style="text-align: center">식당 순위(가제)</h2></a>
+								<a href="rateTotal.do"><h2 style="text-align: center">IDTasty Road</h2></a>
 							</div>
 							<div class="row pt-md-4">
 

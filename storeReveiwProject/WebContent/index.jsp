@@ -27,7 +27,7 @@
                             <div class="col-md-12">
                                 <div class="slider-content_wrap">
                                     <h1>IDT 주변의 가장 맛있는 한식집은?</h1>
-                                    <p style="font-size:20px">지금 바로 식당순위(가제)를 통해 확인해보세요!</p>
+                                    <p style="font-size:20px">지금 바로 IDTasty Road를 통해 확인해보세요!</p>
                                 </div>
                             </div>
                         </div>

@@ -7,7 +7,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  height: 100vh;
+  /* height: 100vh;  */
 }
 
 a {
@@ -37,7 +37,7 @@ h2 {
   flex-direction: column; 
   justify-content: center;
   width: 100%;
-  min-height: 100%;
+/*   min-height: 100%; */
   padding: 20px;
 }
 
@@ -53,6 +53,8 @@ h2 {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 #formFooter {
@@ -250,7 +252,7 @@ input[type=text]:placeholder {
 }
 
 h1{
-    color:#60a0ff;
+    color:rgba(0, 0, 0, 0.8);
     margin:1.67em;
 }
 
@@ -262,4 +264,14 @@ h1{
 
 #icon {
   width:30%;
+}
+
+#dialog{
+	width:400px;
+    height:300px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-150px;
 }

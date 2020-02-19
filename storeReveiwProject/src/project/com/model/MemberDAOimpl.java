@@ -22,10 +22,9 @@ public class MemberDAOimpl implements MemberDAO {
 	private final String PASSWORD = "hi123456";
 	
 	private final String SQL_INSERT = "insert into member values(?,?,?)";
-	
 	private final String SQL_SELECT_ONE = "select * from member where member_id=? and member_pw=?";
-
 	private final String SQL_DELETE = "delete from member where num=?";
+	private final String SQL_SELECT_ID = "select member_id from member where member_id=?";
 	
 	public MemberDAOimpl() {
 		System.out.println("MemberDAOimpl()");
@@ -88,9 +87,6 @@ public class MemberDAOimpl implements MemberDAO {
 			}
 
 		}
-
-		
-		
 		return flag;
 	}
 
@@ -161,6 +157,52 @@ public class MemberDAOimpl implements MemberDAO {
 	public int delete(MemberVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public int checkId(MemberVO vo) {
+		// SQL_SELECT_ID
+		int flag = 0;
+		System.out.println("checkId");
+		try {
+			// 2. 커넥션
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			System.out.println("conn successed...");
+			// 3. SQL 설정
+			pstmt = conn.prepareStatement(SQL_SELECT_ID);
+			pstmt.setString(1, vo.getMemberid());
+			// 4. DB처리 결과반환
+			rs = pstmt.executeQuery();// select
+			if(rs.next()) flag = 1;
+			System.out.println(rs);
+		} catch (SQLException e) {
+			System.out.println("conn failed...");
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		return flag;
 	}
 
 }

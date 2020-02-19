@@ -27,7 +27,7 @@
 						<div class="col-xl-12 py-5 px-md-5">
 							<div class="row pt-md-4">
 								<div class="col-md-12 py-5">
-									<a href="rateTotal.do"><h2 style="text-align: center">식당 순위(가제)</h2></a>
+									<a href="rateTotal.do"><h2 style="text-align: center">IDTasty Road</h2></a>
 								</div>
 								<div class="col-md-12 py-3">
 									<form action="searchAll.do" class="search-form">

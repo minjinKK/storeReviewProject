@@ -74,5 +74,9 @@ public class ProjectService {
 		public int insert(MemberVO vo) {
 			return mdao.insert(vo);
 		}
+		public int checkId(MemberVO vo) {
+			// TODO Auto-generated method stub
+			return mdao.checkId(vo);
+		}
 
 }

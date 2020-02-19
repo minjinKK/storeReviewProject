@@ -12,6 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <jsp:include page="css.jsp"></jsp:include>
 </head>
 <body>
@@ -22,7 +23,7 @@
 					<div class="row d-flex">
 						<div class="col-lg-12 px-md-5 py-5">
 							<div class="col-md-12 py-5">
-								<a href="rateTotal.do"><h2 style="text-align: center">식당 순위(가제)</h2></a>
+								<a href="rateTotal.do"><h2 style="text-align: center">IDTasty Road</h2></a>
 							</div>
 
 							<!--
@@ -48,7 +49,6 @@
 									</div>
 								</div>
 								-->
-
 							<div class="col-md-12 py-1">
 								<div class="comment-form-wrap pt-5">
 									<div class="tag-widget post-tag-container col-xs-12">
@@ -91,8 +91,6 @@
 												<textarea name="r_text" id="message" cols="30" rows="10"
 													class="form-control">너무 맛있는 우리회사 맛집!</textarea>
 											</div>
-
-
 											<div class="form-group">
 												<input type="submit" value="리뷰 남기기!"
 													class="btn py-3 px-4 btn-primary">
@@ -100,7 +98,16 @@
 										</form>
 									</div>
 								</div>
-
+								<!-- dialog -->
+											 <div id="dialog" title="Alert message" style="display: none">
+										           <div class="ui-dialog-content ui-widget-content">
+										               <p>
+										                   <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0"></span>
+										                   <label id="lblMessage">
+										                   </label>
+										               </p>
+										           </div>
+										     </div>
 							</div>
 							<!-- END-->
 						</div>
@@ -125,9 +132,13 @@
 	<jsp:include page="javaScript.jsp"></jsp:include>
 	<script src="./Resouces/js/progressbar.js"></script>
 	<script src="./Resouces/js/reviewstar3.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script>
 	$(document).ready(function() {
-	    $('#rates').submit(function() {
+		var value = $("#res").val();
+ 		if(value == null) $("#alert-form").hide();
+ 		else if(value == "idCheck") $("#alert-form").show();
+ 		$('#rates').submit(function() {
 	        if ($('#r_taste').val() == 0) {
 	            alert('맛의 점수를 매겨주세요!');
 	            return false;

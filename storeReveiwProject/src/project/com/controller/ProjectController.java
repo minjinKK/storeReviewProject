@@ -312,16 +312,21 @@ public class ProjectController extends HttpServlet {
 			vo.setMemberid(member_id);
 			vo.setMemberpw(member_pw);
 			vo.setMemberemail(member_email);
-			int result = service.insert(vo);
-			System.out.println("insert member: "+result);
+			int idCheck = service.checkId(vo);
 			RequestDispatcher rd = null;
-			
-			if (result !=0) {
-				rd = request.getRequestDispatcher("index.do");
+			if(idCheck ==1) {
+				request.setAttribute("signUpResult", "idCheck");
+				rd = request.getRequestDispatcher("signUp.do");
 			}
 			else {
-				request.setAttribute("signUpResult", "fail");
-				rd = request.getRequestDispatcher("signUp.do");
+				int result = service.insert(vo);
+				System.out.println("insert member: "+result);
+				if (result !=0) {
+					rd = request.getRequestDispatcher("index.do");
+				}
+				else {
+					rd = request.getRequestDispatcher("signUp.do");
+				}
 			}
 			rd.forward(request, response);
 		}
