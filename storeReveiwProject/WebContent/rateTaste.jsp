@@ -33,11 +33,11 @@
 									<a href="rateTotal.do"><h2 style="text-align: center">IDTasty Road</h2></a>
 								</div>
 								<div class="col-md-12 py-3">
-									<form action="searchAll.do" class="search-form">
+									<form action="" class="search-form" id="searchForm">
 										<div class="form-group">
 											<span class="icon icon-search"></span> <input type="text" name="searchWord"
 												class="form-control"
-												placeholder="Type a keyword and hit enter">
+												placeholder="Type a keyword and hit enter" id="searchWordId">
 										</div>
 									</form>
 								</div>
@@ -132,7 +132,7 @@
 	<script>
 	$(document).ready(function() {
 		var category = '';
-		loadRate(category);
+		loadRate("json_rateTaste.do",category);
 		$('.dropdown-item').on('click', function() {
 		    // 버튼에 선택된 항목 텍스트 넣기 
 		    //$('#mystatus').text($(this).text());
@@ -140,12 +140,15 @@
 		    //alert($(this).attr('value'));
 		    //$("#rate-wrap").load(window.location.href + "#rate-wrap");
 		    category = ($(this).attr('value')=='전체') ? "": $(this).attr('value');
-			loadRate(category);
+		    loadRate("json_rateTaste.do",category);
 		});
-		
-		function loadRate(category) {
+		$('#searchForm').submit(function() {
+			loadRate("json_searchAll.do",category);
+			return false;
+	    });
+		function loadRate(json_path,category) {
 			console.log("category....."+category);
-			$.get("json_rateTaste.do", function(data, status) {
+			$.get(json_path, {searchWord: $('#searchWordId').val()},function(data, status) {
 				console.log(data);
 				/* let str = "";
 				for ( var i in data[0]) {

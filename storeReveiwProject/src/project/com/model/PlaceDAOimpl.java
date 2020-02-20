@@ -171,7 +171,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 			rs = pstmt.executeQuery();// select 용
 			if(!rs.next())System.out.println("fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			else {
-				System.out.println(vo);
+				
 				vo.setPname(rs.getString("p_name"));
 				vo.setTotal(rs.getFloat("s_total"));;
 				vo.setTaste(rs.getFloat("s_taste"));
@@ -179,7 +179,7 @@ public class PlaceDAOimpl implements PlaceDAO {
 				vo.setDistance(rs.getFloat("s_distance"));
 				vo.setCircul(rs.getFloat("s_circul"));
 				vo.setCount(rs.getInt("s_count"));
-			
+				System.out.println(vo);
 			///////////////
 
 				

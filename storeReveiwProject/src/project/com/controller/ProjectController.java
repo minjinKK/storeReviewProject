@@ -26,7 +26,7 @@ import project.com.service.ProjectService;
  */
 
 
-@WebServlet({"/signUpOK.do","/signUp.do","/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do","/json_rateTotal.do","/json_rateCircul.do","/json_ratePrice.do","/json_rateDistance.do","/json_rateTaste.do"})
+@WebServlet({"/json_searchAll.do","/signUpOK.do","/signUp.do","/insertReview.do","/reviewWrite.do","/searchAll.do","/ratePrice.do","/rateDistance.do","/rateCircul.do","/index.do","/login.do","/rateTotal.do","/main_rating.do","/rateTaste.do","/review.do","/json_rateTotal.do","/json_rateCircul.do","/json_ratePrice.do","/json_rateDistance.do","/json_rateTaste.do"})
 
 public class ProjectController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -235,9 +235,33 @@ public class ProjectController extends HttpServlet {
 			placeList = service.selectPlaceOne(list);
 			request.setAttribute("placeList", placeList);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("main_rating.jsp");
-
+			RequestDispatcher rd = request.getRequestDispatcher("main_rating2.jsp");
 			rd.forward(request, response);
+		}else if (sPath.equals("/json_searchAll.do")) {
+			String searchWord = request.getParameter("searchWord");
+			System.out.println(searchWord);
+			
+			ArrayList<ScoreVO> list = service.searchAll(searchWord);
+			ArrayList<PlaceVO> placeList = new ArrayList<PlaceVO>();
+			placeList = service.selectPlaceOne(list);
+			
+			JSONArray arr = new JSONArray();
+			arr.put(list);
+			arr.put(placeList);
+			response.getWriter().append(arr.toString());
+			
+			/*
+			 * ArrayList<ScoreVO> list = service.searchAll(searchWord);
+			 * System.out.println("list.size():"+list.size());
+			 * 
+			 * request.setAttribute("list", list); ArrayList<PlaceVO> placeList = new
+			 * ArrayList<PlaceVO>(); placeList = service.selectPlaceOne(list);
+			 * request.setAttribute("placeList", placeList);
+			 * 
+			 * RequestDispatcher rd = request.getRequestDispatcher("main_rating2.jsp");
+			 * 
+			 * rd.forward(request, response);
+			 */
 		}else if (sPath.equals("/reviewWrite.do")) {
 			System.out.println("reviewWrite");
 			
