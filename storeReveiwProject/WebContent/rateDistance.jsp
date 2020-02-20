@@ -165,7 +165,7 @@
 					str += "<a href='review.do?p_name="+data[0][i].pname+"'";
 					str += "class='img img-2' style='background-image: url(./Resouces/images/"+data[1][i].p_img_name+");'>"+rank+"</a>";
 					str +="<div class='text text-2 pl-md-4'><h3 class='mb-2'><a href='review.do?p_name="+data[0][i].pname+"'>"+data[0][i].pname+"</a>";
-					str +="</h3><div class='meta-wrap'><p class='meta'><div id='meta-detail'><span style='margin-right: 10px'>총점<i class='icon-star mr-2'></i>"+data[0][i].total+"</span>"; 
+					str +="</h3><div class='meta-wrap'><p class='meta'><div id='meta-detail'><span style='margin-right: 10px'>총점<i class='icon-star mr-2'></i>"+data[0][i].total.toFixed(1)+"</span>"; 
 					str += "<span style='margin-right: 10px'><i class='icon-folder-o mr-2'></i>"+data[1][i].p_country+"</span><span style='margin-right: 10px'>";
 					str += "<i class='icon-comment2 mr-2'></i>"+data[0][i].count+" Comment</span></div></p></div>";
 					str += "<p class='mb-4'>정말 맛있는 "+data[1][i].p_country+" 집"+ data[0][i].pname+"의 주소는 ?    ["+data[1][i].p_address+"]</p></div>";
